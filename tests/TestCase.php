@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Shortener\Tests;
+namespace Zenapply\Sms\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Zenapply\Shortener\ShortenerServiceProvider'];
+        return ['Zenapply\Sms\SmsServiceProvider'];
     }
 
     /**
@@ -35,15 +35,8 @@ class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('shortener', [
-            'driver' => 'bitly',
-            'cache' => [
-                'enabled'  => true,
-                'duration' => 1440,
-            ],
-            'bitly' => [
-                'token' => 'TOKENFOOBAR',
-            ], 
+        $app['config']->set('sms', [
+            'driver' => 'plivo',
         ]);
     }
 
