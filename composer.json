@@ -1,0 +1,41 @@
+{
+    "name": "zenapply/laravel-sms",
+    "description": "",
+    "keywords": [
+        "laravel",
+        "sms",
+        "tylercd100",
+        "zenapply"
+    ],
+    "homepage": "https://github.com/zenapply/laravel-sms",
+    "license": "MIT",  
+    "authors": [
+        {
+            "name": "Tyler Arbon",
+            "email": "tylercd100@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Zenapply\\Sms\\":"src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zenapply\\Sms\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",  
+    "require": {
+        "php": "^5.5|^7.0",
+        "plivo/plivo-php": "^1.1",
+        "illuminate/support": "^5.2",
+        "illuminate/queue": "^5.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8|^5.0",
+        "orchestra/testbench": "^3.2"
+    },
+    "suggest": {
+    }
+}
