@@ -2,7 +2,9 @@
 
 namespace Zenapply\Sms;
 
+use Validator;
 use Zenapply\Sms\Drivers\SendsSms;
+use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Factories\DriverFactory;
 
 class Sms {
@@ -32,13 +34,41 @@ class Sms {
     /**
      * Sends an SMS message
      * @param  string $msg  The message to send
-     * @param  number $to   The number to send to
+     * @param  mixed  $to   The number to send to
      * @param  number $from The number to send from
      * @return mixed        The response of the message   
      */
-    public function send($msg,$to,$from)
+    public function send($msg,$to,$from = null)
     {
-        return $this->driver->send($msg,$to,$from);
+        if(is_array($to)){
+            return $this->sendMany($msg,$to,$from);
+        } else {
+            if($this->validatePhoneNumbers([$to,$from],true)){
+                return $this->driver->send($msg,$to,$from);
+            }
+        }
+    }
+
+    public function validatePhoneNumbers(array $phones, $throw = false){
+        foreach ($phones as $phone) {
+            $valid = $this->validatePhoneNumber($phone, $throw);
+            if(!$valid){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function validatePhoneNumber($phone, $throw = false){
+        $v = Validator::make(['phone'=>$phone],['phone'=>'phone:AUTO,US,mobile']);
+        if($v->fails()){
+            if($throw){
+                throw new InvalidPhoneNumberException("{$phone} is an invalid phone number!");
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

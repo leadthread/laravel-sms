@@ -1,10 +1,11 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace Zenapply\Sms\Drivers\Plivo;
 
 use Plivo\RestAPI as Service;
+use Zenapply\Sms\Drivers\Request as Base;
 
-class Plivo implements SendsSms {
+class Request extends Base {
 
     protected $handle;
 
@@ -14,9 +15,9 @@ class Plivo implements SendsSms {
 
     public function send($msg,$to,$from){
         $params = [
-            'src'  => "$from",
-            'dst'  => "$to",
-            'text' => "$msg",
+            'src'  => $from,
+            'dst'  => $to,
+            'text' => $msg,
             'type' => 'sms'
         ];
 
