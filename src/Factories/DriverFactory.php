@@ -3,7 +3,7 @@
 namespace Zenapply\Sms\Factories;
 
 use Exception;
-use Zenapply\Sms\Drivers\Plivo;
+use Zenapply\Sms\Drivers\Plivo\Request as Plivo;
 
 class DriverFactory
 {
@@ -25,7 +25,7 @@ class DriverFactory
     /**
      * Plivo
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Plivo
+     * @return \Zenapply\Sms\Drivers\Plivo\Request
      */
     protected function plivo(array $config){
         return new Plivo($config['user'],$config['token']);

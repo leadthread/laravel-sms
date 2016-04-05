@@ -2,14 +2,16 @@
 
 namespace Zenapply\Sms\Providers;
 
-use Zenapply\Sms\Sms;
-
 use Illuminate\Support\ServiceProvider;
+use Propaganistas\LaravelPhone\LaravelPhoneServiceProvider;
+use Zenapply\Sms\Sms;
 
 class SmsServiceProvider extends ServiceProvider
 {
     public function register() {
         $this->mergeConfigFrom(__DIR__ . '/../../config/sms.php', 'sms');
+
+        $this->app->register(LaravelPhoneServiceProvider::class);
 
         $this->app->singleton('sms', function() {
             return new Sms;
