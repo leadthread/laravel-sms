@@ -38,10 +38,27 @@ php artisan vendor:publish
 First you must change your config file located at `config/sms.php`.
 Then you can simply send a message like this:
 ```php
+# Send one text
 $message  = "Hello Phone!";
 $to       = "+15556667777";
 $from     = "+17776665555";
 $response = Sms::send($message,$to,$from);
+```
+```php
+# Send many texts
+$message  = "Hello Phone!";
+$to       = ["+15556667777","+15556667778","+15556667779"];
+$from     = "+17776665555";
+$response = Sms::sendMany($message,$to,$from);
+```
+```php
+# Send many texts with different messages
+$items = [
+  ["msg"=>"Hello Rick!", "to"=>"+15556667777","from"=>"+17776665555"],
+  ["msg"=>"Hello Tyler!","to"=>"+15556667778","from"=>"+17776665555"],
+  ["msg"=>"Hello Karla!","to"=>"+15556667779","from"=>"+17776665555"],
+];
+$response = Sms::sendArray($items);
 ```
 
 Dont forget to add this to the top of the file 
