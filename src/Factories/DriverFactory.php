@@ -11,7 +11,7 @@ class DriverFactory
     /**
      * Creates a driver instance
      * @param  string $driver The driver instance to create
-     * @return Zenapply\Sms\Drivers\SendsSms
+     * @return \Zenapply\Sms\Drivers\SendsSms
      */
     public function get($driver){
         $config = config("sms.{$driver}");
@@ -25,7 +25,7 @@ class DriverFactory
     /**
      * Plivo
      * @param  array $config An array of config values for setting up the driver
-     * @return Zenapply\Sms\Drivers\Plivo
+     * @return \Zenapply\Sms\Drivers\Plivo
      */
     protected function plivo(array $config){
         return new Plivo($config['user'],$config['token']);
