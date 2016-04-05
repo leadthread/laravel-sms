@@ -24,7 +24,7 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Zenapply\Sms\SmsServiceProvider'];
+        return ['Zenapply\Sms\Providers\SmsServiceProvider'];
     }
 
     /**
@@ -37,6 +37,11 @@ class TestCase extends Orchestra
     {
         $app['config']->set('sms', [
             'driver' => 'plivo',
+            'plivo' => [
+                'token' => 'Token',
+                'user'  => 'User',
+                'from'  => '+1 (555) 555-5555', //Default from phone number
+            ], 
         ]);
     }
 
