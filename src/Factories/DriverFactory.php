@@ -3,12 +3,8 @@
 namespace Zenapply\Sms\Factories;
 
 use Exception;
-<<<<<<< HEAD
-use Zenapply\Sms\Drivers\Plivo;
-use Zenapply\Sms\Drivers\Twilio;
-=======
 use Zenapply\Sms\Drivers\Plivo\Request as Plivo;
->>>>>>> 51411dfd5dd84fe5d9c3a9383af7b96b7fe9fd3d
+use Zenapply\Sms\Drivers\Twilio\Request as Twilio;
 
 class DriverFactory
 {
