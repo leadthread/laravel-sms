@@ -1,10 +1,11 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace Zenapply\Sms\Drivers\Twilio;
 
 use Services_Twilio as Service;
+use Zenapply\Sms\Drivers\Request as Base;
 
-class Twilio implements SendsSms {
+class Request implements Base {
 
     protected $handle;
 

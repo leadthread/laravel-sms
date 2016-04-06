@@ -33,7 +33,8 @@
         "illuminate/queue": "^5.2",
         "illuminate/contracts": "^5.2",
         "illuminate/bus": "^5.2",
-        "twilio/sdk": "^4.10"
+        "twilio/sdk": "^4.10",
+        "propaganistas/laravel-phone": "^2.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8|^5.0",
