@@ -37,9 +37,13 @@ class Twilio extends Driver {
     }
 
     public function sellNumber($phone){
-        $resp = $this->handle->account->incoming_phone_numbers->delete($this->auth_id,array(
-            "PhoneNumber" => $phone,
-        ));
+        $sid = false;
+        foreach ($this->handle->account->incoming_phone_numbers as $number) {
+            if($phone === $number->phone_number){
+                $sid = $number->sid;
+            }
+        }
+        $resp = $this->handle->account->incoming_phone_numbers->delete($sid);
         return $this->respond($resp);
     }
 
