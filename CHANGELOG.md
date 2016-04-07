@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 1.2.0
+- Added Twilio support
+
 ### 1.1.0
 - Added phone validator
 
