@@ -4,6 +4,7 @@ namespace Zenapply\Sms\Factories;
 
 use Exception;
 use Zenapply\Sms\Drivers\Plivo\Request as Plivo;
+use Zenapply\Sms\Drivers\Twilio\Request as Twilio;
 
 class DriverFactory
 {
@@ -29,5 +30,14 @@ class DriverFactory
      */
     protected function plivo(array $config){
         return new Plivo($config['user'],$config['token']);
-    }    
+    }
+
+    /**
+     * Twilio
+     * @param  array $config An array of config values for setting up the driver
+     * @return \Zenapply\Sms\Drivers\Twilio
+     */
+    protected function twilio(array $config){
+        return new Twilio($config['user'],$config['token']);
+    }
 }
