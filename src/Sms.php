@@ -49,9 +49,16 @@ class Sms {
         }
     }
 
-    public function validatePhoneNumbers(array $phones, $throw = false){
+    /**
+     * Validates many phone numbers
+     * @param  array   $phones An array of phone numbers to check
+     * @param  boolean $throw  If true it will throw an Exception
+     * @param  string  $rule   The validation rule
+     * @return boolean         
+     */
+    public function validatePhoneNumbers(array $phones, $throw = false, $rule = 'AUTO,US,mobile'){
         foreach ($phones as $phone) {
-            $valid = $this->validatePhoneNumber($phone, $throw);
+            $valid = $this->validatePhoneNumber($phone, $throw, $rule);
             if(!$valid){
                 return false;
             }
@@ -59,8 +66,15 @@ class Sms {
         return true;
     }
 
-    public function validatePhoneNumber($phone, $throw = false){
-        $v = Validator::make(['phone'=>$phone],['phone'=>'phone:AUTO,US,mobile']);
+    /**
+     * Validates a single phone number
+     * @param  string  $phone The phone number to check
+     * @param  boolean $throw If true it will throw an Exception
+     * @param  string  $rule  The validation rule
+     * @return boolean
+     */
+    public function validatePhoneNumber($phone, $throw = false, $rule = 'AUTO,US,mobile'){
+        $v = Validator::make(['phone'=>$phone],['phone'=>"phone:{$rule}"]);
         if($v->fails()){
             if($throw){
                 throw new InvalidPhoneNumberException("{$phone} is an invalid phone number!");
