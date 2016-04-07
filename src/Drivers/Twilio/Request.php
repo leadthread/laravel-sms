@@ -5,7 +5,7 @@ namespace Zenapply\Sms\Drivers\Twilio;
 use Services_Twilio as Service;
 use Zenapply\Sms\Drivers\Request as Base;
 
-class Request implements Base {
+class Request extends Base {
 
     protected $handle;
 

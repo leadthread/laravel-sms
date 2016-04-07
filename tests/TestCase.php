@@ -28,6 +28,16 @@ class TestCase extends Orchestra
     }
 
     /**
+     * @param \Illuminate\Foundation\Application $app
+     */
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Sms' => 'Zenapply\Sms\Facades\Sms'
+        ];
+    }
+
+    /**
      * Define environment setup.
      *
      * @param  \Illuminate\Foundation\Application  $app
@@ -38,6 +48,11 @@ class TestCase extends Orchestra
         $app['config']->set('sms', [
             'driver' => 'plivo',
             'plivo' => [
+                'token' => 'Token',
+                'user'  => 'User',
+                'from'  => '+1 (555) 555-5555', //Default from phone number
+            ], 
+            'twilio' => [
                 'token' => 'Token',
                 'user'  => 'User',
                 'from'  => '+1 (555) 555-5555', //Default from phone number
