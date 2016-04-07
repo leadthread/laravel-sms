@@ -78,7 +78,7 @@ class SmsTest extends TestCase
     }
 
     protected function getSmsInstanceWithMockedDriver(){
-        $mock = $this->getMock('Zenapply\Sms\Drivers\Plivo\Request', ['send'], ['user','token']);
+        $mock = $this->getMock('Zenapply\Sms\Drivers\Plivo', ['send'], ['user','token']);
         
         $mock->expects($this->any())
              ->method('send');

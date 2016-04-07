@@ -114,4 +114,17 @@ class Sms {
         }
         return $resp;
     }
+
+
+    public function searchNumber($areacode,$country = 'US'){
+        return $this->driver->searchNumber($areacode,$country);
+    }
+
+    public function buyNumber($number){
+        return $this->driver->buyNumber($number);
+    }
+
+    public function sellNumber($number){
+        return $this->driver->sellNumber($number);
+    }
 }
