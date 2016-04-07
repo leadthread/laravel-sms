@@ -11,6 +11,7 @@ Laravel SMS is a simple package for sending messages to different SMS services.
 
 Currently supported:
 - [Plivo](http://plivo.com/)
+- [Twilio](http://twilio.com/)
 
 ## Installation
 
