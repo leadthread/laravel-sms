@@ -36,8 +36,10 @@ php artisan vendor:publish
 ```
 
 ## Usage
-First you must change your config file located at `config/sms.php`.
-Then you can simply send a message like this:
+First you must change your config file located at `config/sms.php` with your proper API credentials.
+
+### Sending Messages
+You can simply send a message like this:
 ```php
 # Send one text
 $message  = "Hello Phone!";
@@ -68,6 +70,21 @@ Dont forget to add this to the top of the file
 use Sms;
 //or if you didnt...
 use Zenapply\Sms\Facades\Sms;
+```
+
+### Buying and Selling phone numbers
+```php
+$areacode = '435';
+//Search for a number to buy
+//The response is different for each SMS service provider. This example shows Plivo.
+$response = Sms::searchNumber($areacode);
+$number = $response['response']['objects'][0]['number'];
+
+//Buy the number
+Sms::buyNumber($number);
+
+//Unrent the number
+Sms::sellNumber($number);
 ```
 
 ## Contributing
