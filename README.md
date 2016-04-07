@@ -7,7 +7,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187)
 [![Total Downloads](https://img.shields.io/packagist/dt/zenapply/laravel-sms.svg?style=flat-square)](https://packagist.org/packages/zenapply/laravel-sms)
 
-Laravel SMS is a simple package for sending messages to different SMS services. 
+Laravel SMS is a simple Laravel 5 package for sending messages to different SMS services. 
 
 Currently supported:
 - [Plivo](http://plivo.com/)
@@ -69,3 +69,7 @@ use Sms;
 //or if you didnt...
 use Zenapply\Sms\Facades\Sms;
 ```
+
+## Contributing
+Contributions are always welcome!
+If you would like to have another service added to the list please request it by opening up an issue or sending a pull request
