@@ -4,6 +4,7 @@ namespace Zenapply\Sms\Drivers;
 
 use Plivo\RestAPI as Service;
 use Zenapply\Sms\Drivers\Driver;
+use Zenapply\Sms\Responses\Plivo as PlivoResponse;
 
 class Plivo extends Driver {
 
@@ -21,7 +22,7 @@ class Plivo extends Driver {
             'type' => 'sms'
         ];
 
-        return $this->handle->send_message($params);
+        return new PlivoResponse($this->handle->send_message($params));
     }
 
     public function searchNumber($areacode,$country = 'US'){
@@ -32,7 +33,7 @@ class Plivo extends Driver {
             'services' => 'sms',
         ];
 
-        return $this->handle->search_phone_numbers($params);
+        return new PlivoResponse($this->handle->search_phone_numbers($params));
     }
 
     public function buyNumber($phone){
@@ -40,7 +41,7 @@ class Plivo extends Driver {
             'number' => $phone
         ];
 
-        return $this->handle->buy_phone_number($params);
+        return new PlivoResponse($this->handle->buy_phone_number($params));
     }
 
     public function sellNumber($phone){
@@ -48,6 +49,6 @@ class Plivo extends Driver {
             'number' => $phone
         ];
 
-        return $this->handle->unrent_number($params);
+        return new PlivoResponse($this->handle->unrent_number($params));
     }
 }

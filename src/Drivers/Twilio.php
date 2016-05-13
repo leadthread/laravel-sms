@@ -4,6 +4,7 @@ namespace Zenapply\Sms\Drivers;
 
 use Services_Twilio as Service;
 use Zenapply\Sms\Drivers\Driver;
+use Zenapply\Sms\Responses\Twilio as TwilioResponse;
 
 class Twilio extends Driver {
 
@@ -17,7 +18,7 @@ class Twilio extends Driver {
     }
 
     public function send($msg,$to,$from){
-        return $this->handle->account->messages->sendMessage($from, $to, $msg);
+        return new TwilioResponse($this->handle->account->messages->sendMessage($from, $to, $msg));
     }
 
     public function searchNumber($areacode,$country = 'US'){
@@ -26,14 +27,14 @@ class Twilio extends Driver {
             "Sms" => true,
         ]);
 
-        return $this->respond($resp);
+        return new TwilioResponse($this->respond($resp));
     }
 
     public function buyNumber($phone){
         $resp = $this->handle->account->incoming_phone_numbers->create(array(
             "PhoneNumber" => $phone,
         ));
-        return $this->respond($resp);
+        return new TwilioResponse($resp);
     }
 
     public function sellNumber($phone){
@@ -44,10 +45,6 @@ class Twilio extends Driver {
             }
         }
         $resp = $this->handle->account->incoming_phone_numbers->delete($sid);
-        return $this->respond($resp);
-    }
-
-    private function respond($data){
-        return json_decode(json_encode($data), true);
+        return new TwilioResponse($resp);
     }
 }

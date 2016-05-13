@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 2.0.0
+- Added SMS response classes for twilio and plivo
+
 ### 1.3.0
 - Added functions to buy and sell numbers
 	

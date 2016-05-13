@@ -4,7 +4,7 @@ namespace Zenapply\Sms\Tests;
 
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Sms;
-use Zenapply\Sms\Drivers\SendsSms;
+use Zenapply\Sms\Interfaces\SendsSms;
 use Zenapply\Sms\Factories\DriverFactory;
 use Sms as SmsFacade;
 
