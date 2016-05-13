@@ -27,7 +27,7 @@ class Twilio extends Driver {
             "Sms" => true,
         ]);
 
-        return new TwilioResponse($this->respond($resp));
+        return new TwilioResponse($resp);
     }
 
     public function buyNumber($phone){
