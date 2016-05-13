@@ -16,6 +16,10 @@ class Plivo extends Response
             }
         }
 
+        if(isset($resp['available_phone_numbers'])){
+            $this->number = $response['available_phone_numbers'][0]['phone_number'];
+        }
+
         if(isset($response['status'])){
             $this->status = $response["status"];
         }

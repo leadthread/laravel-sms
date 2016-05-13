@@ -9,6 +9,7 @@ abstract class Response implements SmsResponse
     public $uuid;
     public $status;
     public $error;
+    public $number;
 
     public function __construct($response){
         $this->applyResponse($response);
