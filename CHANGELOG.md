@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 1.3.0
+- Added functions to buy and sell numbers
+	
 ### 1.2.1
 - Fixed Twilio
 - Added more unit tests

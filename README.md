@@ -7,7 +7,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187)
 [![Total Downloads](https://img.shields.io/packagist/dt/zenapply/laravel-sms.svg?style=flat-square)](https://packagist.org/packages/zenapply/laravel-sms)
 
-Laravel SMS is a simple package for sending messages to different SMS services. 
+Laravel SMS is a simple Laravel 5 package for sending messages to different SMS services. 
 
 Currently supported:
 - [Plivo](http://plivo.com/)
@@ -36,8 +36,10 @@ php artisan vendor:publish
 ```
 
 ## Usage
-First you must change your config file located at `config/sms.php`.
-Then you can simply send a message like this:
+First you must change your config file located at `config/sms.php` with your proper API credentials.
+
+### Sending Messages
+You can simply send a message like this:
 ```php
 # Send one text
 $message  = "Hello Phone!";
@@ -69,3 +71,22 @@ use Sms;
 //or if you didnt...
 use Zenapply\Sms\Facades\Sms;
 ```
+
+### Buying and Selling phone numbers
+```php
+$areacode = '435';
+//Search for a number to buy
+//The response is different for each SMS service provider. This example shows Plivo.
+$response = Sms::searchNumber($areacode);
+$number = $response['response']['objects'][0]['number'];
+
+//Buy the number
+Sms::buyNumber($number);
+
+//Unrent the number
+Sms::sellNumber($number);
+```
+
+## Contributing
+Contributions are always welcome!
+If you would like to have another service added to the list please request it by opening up an issue or sending a pull request
