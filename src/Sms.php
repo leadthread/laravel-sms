@@ -2,8 +2,8 @@
 
 namespace Zenapply\Sms;
 
-use Validator;
-use Zenapply\Sms\Drivers\SendsSms;
+// use Validator;
+use Zenapply\Sms\Interfaces\SendsSms;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Factories\DriverFactory;
 
@@ -14,14 +14,14 @@ class Sms {
 
     public function __construct(SendsSms $driver = null)
     {
-        $this->config = config('sms');
+        // $this->config = config('sms');
         $this->driver = $this->getDriver($driver);
     }
 
     /**
      * Returns a SMS driver instance
      * @param  mixed $driver An existing SMS driver instance to use
-     * @return \Zenapply\Sms\Drivers\SendsSms
+     * @return \Zenapply\Sms\Interfaces\SendsSms
      */
     protected function getDriver($driver = null){
         if(!$driver instanceof SendsSms){
@@ -74,14 +74,14 @@ class Sms {
      * @return boolean
      */
     public function validatePhoneNumber($phone, $throw = false, $rule = 'AUTO,US,mobile'){
-        $v = Validator::make(['phone'=>$phone],['phone'=>"phone:{$rule}"]);
-        if($v->fails()){
-            if($throw){
-                throw new InvalidPhoneNumberException("{$phone} is an invalid phone number!");
-            } else {
-                return false;
-            }
-        }
+        // $v = Validator::make(['phone'=>$phone],['phone'=>"phone:{$rule}"]);
+        // if($v->fails()){
+        //     if($throw){
+        //         throw new InvalidPhoneNumberException("{$phone} is an invalid phone number!");
+        //     } else {
+        //         return false;
+        //     }
+        // }
         return true;
     }
 
