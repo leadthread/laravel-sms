@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 2.1.0
+- Responses will attach the phone number when searching for a number to buy
+
 ### 2.0.1
 - Fixed 'undefined method' error in Twilio class
 
