@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 2.1.1
+- Fixed issue when purchasing numbers with Twilio.
+- Fixed issue when selling numbers with Plivo.
+
 ### 2.1.0
 - Responses will attach the phone number when searching for a number to buy
 

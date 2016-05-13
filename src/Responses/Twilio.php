@@ -13,7 +13,7 @@ class Twilio extends Response
         if(isset($response->sid)){
             $this->uuid = $response->sid;
         }
-        if(isset($response->available_phone_numbers[0])){
+        if(!empty($response->available_phone_numbers)){
             $this->number = $response->available_phone_numbers[0]->phone_number;
         }
     }

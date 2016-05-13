@@ -45,10 +45,10 @@ class Plivo extends Driver {
     }
 
     public function sellNumber($phone){
+        $phone = str_replace("+","",$phone);
         $params = [
             'number' => $phone
         ];
-
         return new PlivoResponse($this->handle->unrent_number($params));
     }
 }
