@@ -4,6 +4,7 @@ namespace Zenapply\Sms\Drivers;
 
 use Services_Twilio as Service;
 use Zenapply\Sms\Drivers\Driver;
+use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Responses\Twilio as TwilioResponse;
 
 class Twilio extends Driver {
@@ -39,11 +40,17 @@ class Twilio extends Driver {
 
     public function sellNumber($phone){
         $sid = false;
+
         foreach ($this->handle->account->incoming_phone_numbers as $number) {
-            if($phone === $number->phone_number){
+            if($phone == $number->phone_number){
                 $sid = $number->sid;
             }
+        } 
+        
+        if(empty($sid)){
+            throw new InvalidPhoneNumberException("The phone number '{$phone}' could not be found on your account!");
         }
+
         $resp = $this->handle->account->incoming_phone_numbers->delete($sid);
         return new TwilioResponse($resp);
     }

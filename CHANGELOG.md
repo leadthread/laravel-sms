@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 2.1.2
+- Changed Twilio number check from === to ==
+
 ### 2.1.1
 - Fixed issue when purchasing numbers with Twilio.
 - Fixed issue when selling numbers with Plivo.
