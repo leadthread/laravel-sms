@@ -5,7 +5,7 @@ return [
     /**
      * The SMS service to use. twilio or plivo
      */
-    'driver' => env('SMS_DRIVER','plivo'),
+    'driver' => env('SMS_DRIVER', 'plivo'),
 
     /**
      * Plivo settings
@@ -13,7 +13,7 @@ return [
     'plivo' => [
         'token' => env('PLIVO_AUTH_TOKEN'),
         'user'  => env('PLIVO_AUTH_ID'),
-        'from'  => env('PLIVO_FROM',null), //Default from phone number
+        'from'  => env('PLIVO_FROM', null), //Default from phone number
     ], 
 
     /**
@@ -22,6 +22,16 @@ return [
     'twilio' => [
         'token' => env('TWILIO_AUTH_TOKEN'),
         'user'  => env('TWILIO_AUTH_SID'),
-        'from'  => env('TWILIO_FROM',null), //Default from phone number
+        'from'  => env('TWILIO_FROM', null), //Default from phone number
+    ], 
+
+    /**
+     * Bandwidth settings
+     */
+    'bandwidth' => [
+        'secret' => env('BANDWIDTH_SECRET'),
+        'token' => env('BANDWIDTH_TOKEN'),
+        'user_id' => env('BANDWIDTH_USER_ID'),
+        'from'  => env('BANDWIDTH_FROM', null), //Default from phone number
     ], 
 ];

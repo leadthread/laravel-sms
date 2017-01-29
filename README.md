@@ -20,6 +20,15 @@ Install via [composer](https://getcomposer.org/) - In the terminal:
 composer require zenapply/laravel-sms
 ```
 
+Install Plivo or Twilio SDK
+```bash
+composer require plivo/plivo-php:^1.1
+# or
+composer require twilio/sdk:^4.10
+# or
+composer require bandwidth/catapult:^0.8.2
+```
+
 Now add the following to the `providers` array in your `config/app.php`
 ```php
 Zenapply\Sms\Providers\SmsServiceProvider::class
