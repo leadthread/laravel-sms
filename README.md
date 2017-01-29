@@ -26,7 +26,7 @@ composer require plivo/plivo-php:^1.1
 # or
 composer require twilio/sdk:^4.10
 # or
-composer require zenapply/php-bandwidth
+composer require bandwidth/catapult:^0.8.2
 ```
 
 Now add the following to the `providers` array in your `config/app.php`

@@ -35,14 +35,12 @@ class Bandwidth extends Driver
 
     public function searchNumber($areacode, $country = 'US')
     {
-        $x = new PhoneNumbers();
-        return new BandwidthResponse($x->listLocal(["areaCode"=>$areacode]));
+        throw new \Exception("Error Processing Request", 1);
     }
 
     public function buyNumber($phone)
     {
-        $x = new PhoneNumbers();
-        return new BandwidthResponse($x->batchAllocateLocal(["areaCode"=>$areacode]));
+        throw new \Exception("Error Processing Request", 1);
     }
 
     public function sellNumber($phone)
