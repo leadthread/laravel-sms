@@ -6,6 +6,7 @@ use Validator;
 use Zenapply\Sms\Interfaces\SendsSms;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Factories\DriverFactory;
+use Config;
 
 class Sms
 {
@@ -14,7 +15,7 @@ class Sms
 
     public function __construct(SendsSms $driver = null)
     {
-        $this->config = config('sms');
+        $this->config = (class_exists("Config") ? Config::get('sms') : []);
         $this->driver = $this->getDriver($driver);
     }
 

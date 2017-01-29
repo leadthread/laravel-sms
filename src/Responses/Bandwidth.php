@@ -8,7 +8,6 @@ class Bandwidth extends Response
 {
     public function applyResponse($response)
     {
-        var_dump($response);
         if (isset($response->error_message)) {
             $this->error = $response->error_message;
         }
