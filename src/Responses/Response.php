@@ -11,17 +11,20 @@ abstract class Response implements SmsResponse
     public $error;
     public $number;
 
-    public function __construct($response){
+    public function __construct($response)
+    {
         $this->applyResponse($response);
     }
 
     abstract public function applyResponse($response);
 
-    public function failed(){
+    public function failed()
+    {
         return !$this->successful();
     }
 
-    public function getUUID(){
+    public function getUUID()
+    {
         return $this->uuid;
     }
 }

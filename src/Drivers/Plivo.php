@@ -6,15 +6,22 @@ use Plivo\RestAPI as Service;
 use Zenapply\Sms\Drivers\Driver;
 use Zenapply\Sms\Responses\Plivo as PlivoResponse;
 
-class Plivo extends Driver {
+class Plivo extends Driver
+{
 
     protected $handle;
 
-    public function __construct($auth_id, $auth_token){
+    public function __construct($auth_id, $auth_token)
+    {
         $this->handle = new Service($auth_id, $auth_token);
     }
 
-    public function send($msg,$to,$from){
+    public function send($msg, $to, $from, $callback = null)
+    {
+        if (!empty($callback)) {
+            throw new \Exception("Callback URLs are not implemented for Plivo", 1);
+        }
+
         $params = [
             'src'  => $from,
             'dst'  => $to,
@@ -25,7 +32,8 @@ class Plivo extends Driver {
         return new PlivoResponse($this->handle->send_message($params));
     }
 
-    public function searchNumber($areacode,$country = 'US'){
+    public function searchNumber($areacode, $country = 'US')
+    {
         $params = [
             'country_iso' => $country,
             'type' => 'local',
@@ -36,7 +44,8 @@ class Plivo extends Driver {
         return new PlivoResponse($this->handle->search_phone_numbers($params));
     }
 
-    public function buyNumber($phone){
+    public function buyNumber($phone)
+    {
         $params = [
             'number' => $phone
         ];
@@ -44,8 +53,9 @@ class Plivo extends Driver {
         return new PlivoResponse($this->handle->buy_phone_number($params));
     }
 
-    public function sellNumber($phone){
-        $phone = str_replace("+","",$phone);
+    public function sellNumber($phone)
+    {
+        $phone = str_replace("+", "", $phone);
         $params = [
             'number' => $phone
         ];

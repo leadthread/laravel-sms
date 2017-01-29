@@ -14,7 +14,8 @@ class DriverFactory
      * @param  string $driver The driver instance to create
      * @return \Zenapply\Sms\Drivers\SendsSms
      */
-    public function get($driver){
+    public function get($driver)
+    {
         $config = config("sms.{$driver}");
         if (is_array($config)) {
             return $this->{$driver}($config);
@@ -28,8 +29,9 @@ class DriverFactory
      * @param  array $config An array of config values for setting up the driver
      * @return \Zenapply\Sms\Drivers\Plivo\Request
      */
-    protected function plivo(array $config){
-        return new Plivo($config['user'],$config['token']);
+    protected function plivo(array $config)
+    {
+        return new Plivo($config['user'], $config['token']);
     }
 
     /**
@@ -37,7 +39,18 @@ class DriverFactory
      * @param  array $config An array of config values for setting up the driver
      * @return \Zenapply\Sms\Drivers\Twilio
      */
-    protected function twilio(array $config){
-        return new Twilio($config['user'],$config['token']);
+    protected function twilio(array $config)
+    {
+        return new Twilio($config['user'], $config['token']);
+    }
+
+    /**
+     * Bandwidth
+     * @param  array $config An array of config values for setting up the driver
+     * @return \Zenapply\Sms\Drivers\Bandwidth
+     */
+    protected function bandwidth(array $config)
+    {
+        return new Bandwidth($config['secret'], $config['token'], $config['user_id']);
     }
 }
