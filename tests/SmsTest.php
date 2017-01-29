@@ -24,35 +24,6 @@ class SmsTest extends TestCase
         }
     }
 
-    public function testItThrowsExceptionWhenUsingInvalidPhoneNumberArray(){
-        $sms = new Sms();
-        $this->setExpectedException(InvalidPhoneNumberException::class);
-        $result = $sms->validatePhoneNumbers(["(734) 555 1212","asdf"],true);
-    }
-
-    public function testItReturnsFalseForInvalidPhoneNumber(){
-        $sms = new Sms();
-        $result = $sms->validatePhoneNumber("asdf");
-        $this->assertEquals($result,false);
-    }
-
-    public function testItReturnsTrueForValidPhoneNumber(){
-        $sms = new Sms();
-        $result = $sms->validatePhoneNumber("(734) 555 1212");
-        $this->assertEquals($result,true);
-    }
-
-    public function testItThrowsExceptionWhenUsingInvalidPhoneNumber(){
-        $sms = new Sms();
-        $this->setExpectedException(InvalidPhoneNumberException::class);
-        $result = $sms->validatePhoneNumber("asdf",true);
-    }
-
-    public function testItPassesAValidPhoneNumber(){
-        $sms = new Sms();
-        $result = $sms->validatePhoneNumber("(734) 555 1212",true);
-    }
-
     public function testSmsSend(){
         $sms = $this->getSmsInstanceWithMockedDriver();
         $sms->send("message","(734) 555 1211","(734) 555 1212");
@@ -70,11 +41,6 @@ class SmsTest extends TestCase
             ["msg"=>"message","to"=>"(734) 555 1213","from"=>"(734) 555 1216"],
             ["msg"=>"message","to"=>"(734) 555 1212","from"=>"(734) 555 1217"],
         ]);
-    }
-
-    public function testTheFacadeWorks(){
-        $result = SmsFacade::validatePhoneNumber("(734) 555 1212");
-        $this->assertEquals($result,true);
     }
 
     protected function getSmsInstanceWithMockedDriver(){
