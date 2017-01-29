@@ -5,6 +5,7 @@ namespace Zenapply\Sms\Factories;
 use Exception;
 use Zenapply\Sms\Drivers\Plivo;
 use Zenapply\Sms\Drivers\Twilio;
+use Zenapply\Sms\Drivers\Bandwidth;
 
 class DriverFactory
 {

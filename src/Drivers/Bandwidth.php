@@ -28,7 +28,7 @@ class Bandwidth extends Driver
             "from" => new PhoneNumber($from),
             "to" => new PhoneNumber($to),
             "text" => new TextMessage($msg),
-            "callback_url" => $callback,
+            "callbackUrl" => $callback,
         ));
         return new BandwidthResponse($message);
     }
