@@ -2,6 +2,7 @@
 
 namespace Zenapply\Sms\Drivers;
 
+use Exception;
 use Twilio\Rest\Client as Service;
 use Zenapply\Sms\Drivers\Driver;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
@@ -28,12 +29,18 @@ class Twilio extends Driver
         return new TwilioResponse($this->handle->account->messages->sendMessage($from, $to, $msg));
     }
 
-    public function searchNumber($areacode, $country = 'US')
+    public function searchNumber($search)
     {
-        $resp = $this->handle->account->available_phone_numbers->getList($country, 'Local', [
-            "AreaCode" => $areacode,
+        if (!is_array($search)) {
+            throw new Exception("Argument #1 must be an array");
+        }
+
+        $opts = [
+            "AreaCode" => $search["areacode"],
             "Sms" => true,
-        ]);
+        ];
+
+        $resp = $this->handle->account->available_phone_numbers->getList($search["country"], 'Local', $opts);
 
         return new TwilioResponse($resp);
     }

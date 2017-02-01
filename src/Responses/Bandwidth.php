@@ -3,19 +3,21 @@
 namespace Zenapply\Sms\Responses;
 
 use Zenapply\Sms\Interfaces\SmsResponse;
+use Catapult\PhoneNumbersCollection;
+use Catapult\PhoneNumbers;
 
 class Bandwidth extends Response
 {
     public function applyResponse($response)
     {
-        if (isset($response->error_message)) {
-            $this->error = $response->error_message;
+        if (isset($response->messageId)) {
+            $this->uuid = $response->messageId;
         }
-        if (isset($response->sid)) {
-            $this->uuid = $response->sid;
+        if ($response instanceof PhoneNumbersCollection) {
+            $this->number = $response->first()->number;
         }
-        if (!empty($response->available_phone_numbers)) {
-            $this->number = $response->available_phone_numbers[0]->phone_number;
+        if ($response instanceof PhoneNumbers) {
+            $this->number = $response->number;
         }
     }
 

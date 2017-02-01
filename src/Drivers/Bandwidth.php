@@ -11,6 +11,8 @@ use Catapult\PhoneNumbers;
 use Zenapply\Sms\Drivers\Driver;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Responses\Bandwidth as BandwidthResponse;
+use Zenapply\Sms\Search\Bandwidth as Search;
+use Zenapply\Sms\Interfaces\PhoneSearchParams;
 
 class Bandwidth extends Driver
 {
@@ -33,14 +35,16 @@ class Bandwidth extends Driver
         return new BandwidthResponse($message);
     }
 
-    public function searchNumber($areacode, $country = 'US')
+    public function searchNumber(PhoneSearchParams $search)
     {
-        throw new \Exception("Error Processing Request", 1);
+        $response = (new PhoneNumbers())->listLocal($search->toArray());
+        return new BandwidthResponse($response);
     }
 
     public function buyNumber($phone)
     {
-        throw new \Exception("Error Processing Request", 1);
+        $response = (new PhoneNumbers())->allocate(["number" => $phone]);
+        return new BandwidthResponse($response);
     }
 
     public function sellNumber($phone)

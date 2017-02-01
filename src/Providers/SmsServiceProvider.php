@@ -8,12 +8,13 @@ use Zenapply\Sms\Sms;
 
 class SmsServiceProvider extends ServiceProvider
 {
-    public function register() {
+    public function register()
+    {
         $this->mergeConfigFrom(__DIR__ . '/../../config/sms.php', 'sms');
 
         $this->app->register(LaravelPhoneServiceProvider::class);
 
-        $this->app->singleton('sms', function() {
+        $this->app->singleton('sms', function () {
             return new Sms;
         });
     }
@@ -22,6 +23,6 @@ class SmsServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config/sms.php' => base_path('config/sms.php'),
-        ]);   
+        ]);
     }
 }

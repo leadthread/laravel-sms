@@ -32,12 +32,16 @@ class Plivo extends Driver
         return new PlivoResponse($this->handle->send_message($params));
     }
 
-    public function searchNumber($areacode, $country = 'US')
+    public function searchNumber($search)
     {
+        if (!is_array($search)) {
+            throw new Exception("Argument #1 must be an array");
+        }
+
         $params = [
-            'country_iso' => $country,
+            'country_iso' => $search["country"],
             'type' => 'local',
-            'pattern' => $areacode,
+            'pattern' => $search["areacode"],
             'services' => 'sms',
         ];
 

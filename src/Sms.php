@@ -2,11 +2,14 @@
 
 namespace Zenapply\Sms;
 
+use Config;
 use Validator;
-use Zenapply\Sms\Interfaces\SendsSms;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Factories\DriverFactory;
-use Config;
+use Zenapply\Sms\Factories\SearchFactory;
+use Zenapply\Sms\Interfaces\PhoneSearchParams;
+use Zenapply\Sms\Interfaces\SendsSms;
+use Zenapply\Sms\Search\Search;
 
 class Sms
 {
@@ -79,10 +82,28 @@ class Sms
         return $resp;
     }
 
-
-    public function searchNumber($areacode, $country = 'US')
+    protected function getSearchParams($search)
     {
-        return $this->driver->searchNumber($areacode, $country);
+        if (!$search instanceof PhoneSearchParams) {
+            $f = new SearchFactory();
+            return $f->get($this->config["driver"], $search);
+        }
+        return $search;
+    }
+
+    /**
+     * Searches for a number and then purchases the first one it finds
+     * @param  array $search Array of search options
+     * @return \Zenapply\Sms\Responses\Response
+     */
+    public function searchAndBuyNumber($search)
+    {
+        return $this->driver->searchAndBuyNumber($this->getSearchParams($search));
+    }
+
+    public function searchNumber($search)
+    {
+        return $this->driver->searchNumber($this->getSearchParams($search));
     }
 
     public function buyNumber($number)
