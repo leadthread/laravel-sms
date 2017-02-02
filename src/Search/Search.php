@@ -8,6 +8,7 @@ use Zenapply\Sms\Interfaces\PhoneSearchParams;
 abstract class Search implements Arrayable, PhoneSearchParams
 {
     protected $params = [
+        "state",
         "areacode",
         "country"
     ];
