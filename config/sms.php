@@ -34,5 +34,6 @@ return [
         'user_id' => env('BANDWIDTH_USER_ID'),
         'from'  => env('BANDWIDTH_FROM', null), //Default from phone number
         'fallback_url' => env('BANDWIDTH_FALLBACK_URL', null),
+        'application_id' => env('BANDWIDTH_APPLICATION_ID', null),
     ],
 ];
