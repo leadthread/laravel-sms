@@ -14,6 +14,9 @@ class Bandwidth extends Search
                 case 'areacode':
                     $arr["areaCode"] = $this->{$key};
                     break;
+                case 'application_id':
+                    $arr["applicationId"] = $this->getApplicationId();
+                    break;
                 case 'country':
                     //do nothing
                     break;
@@ -23,5 +26,11 @@ class Bandwidth extends Search
             }
         }
         return $arr;
+    }
+
+    protected function getApplicationId()
+    {
+        $x = config("sms.bandwidth.application_id");
+        return $x ? $x : null;
     }
 }

@@ -34,7 +34,6 @@ class Bandwidth extends Driver
             "text" => new TextMessage($msg),
             "callbackUrl" => $callback,
             "fallbackUrl" => $this->getFallbackUrl(),
-            "applicationId" => $this->getApplicationId(),
         ));
         return new BandwidthResponse($message);
     }
@@ -58,13 +57,6 @@ class Bandwidth extends Driver
 
     protected function getFallbackUrl()
     {
-        $x = $this->config["fallback_url"];
-        return $x ? $x : null;
-    }
-
-    protected function getApplicationId()
-    {
-        $x = $this->config["application_id"];
-        return $x ? $x : null;
+        return array_key_exists("fallback_url", $this->config) ? $this->config["fallback_url"] : null;
     }
 }

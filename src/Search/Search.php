@@ -10,9 +10,12 @@ abstract class Search implements Arrayable, PhoneSearchParams
     protected $params = [
         "state",
         "areacode",
-        "country"
+        "country",
+        "application_id"
     ];
 
+    protected $state;
+    protected $application_id;
     protected $areacode;
     protected $country = "US";
 
