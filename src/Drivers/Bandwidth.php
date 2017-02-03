@@ -6,13 +6,14 @@ use Catapult\Client as Service;
 use Catapult\Credentials;
 use Catapult\Message;
 use Catapult\PhoneNumber;
-use Catapult\TextMessage;
 use Catapult\PhoneNumbers;
+use Catapult\TextMessage;
+use Config;
 use Zenapply\Sms\Drivers\Driver;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
+use Zenapply\Sms\Interfaces\PhoneSearchParams;
 use Zenapply\Sms\Responses\Bandwidth as BandwidthResponse;
 use Zenapply\Sms\Search\Bandwidth as Search;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
 
 class Bandwidth extends Driver
 {
@@ -20,6 +21,7 @@ class Bandwidth extends Driver
 
     public function __construct($secret, $token, $user_id)
     {
+        $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
         $cred = new Credentials($user_id, $token, $secret);
         $this->handle = new Service($cred);
     }
@@ -31,6 +33,7 @@ class Bandwidth extends Driver
             "to" => new PhoneNumber($to),
             "text" => new TextMessage($msg),
             "callbackUrl" => $callback,
+            "fallbackUrl" => $this->getFallbackUrl(),
         ));
         return new BandwidthResponse($message);
     }
@@ -50,5 +53,11 @@ class Bandwidth extends Driver
     public function sellNumber($phone)
     {
         throw new \Exception("Error Processing Request", 1);
+    }
+
+    protected function getFallbackUrl()
+    {
+        $x = $this->config["fallback_url"];
+        return $x ? $x : null;
     }
 }

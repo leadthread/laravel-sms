@@ -7,6 +7,8 @@ use Zenapply\Sms\Interfaces\PhoneSearchParams;
 
 abstract class Driver implements SendsSms
 {
+    protected $config = [];
+    
     abstract public function searchNumber(PhoneSearchParams $search);
     abstract public function buyNumber($phone);
     abstract public function sellNumber($phone);
