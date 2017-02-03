@@ -14,9 +14,6 @@ class Bandwidth extends Search
                 case 'areacode':
                     $arr["areaCode"] = $this->{$key};
                     break;
-                case 'application_id':
-                    $arr["applicationId"] = $this->getApplicationId();
-                    break;
                 case 'country':
                     //do nothing
                     break;

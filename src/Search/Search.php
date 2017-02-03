@@ -11,11 +11,9 @@ abstract class Search implements Arrayable, PhoneSearchParams
         "state",
         "areacode",
         "country",
-        "application_id"
     ];
 
     protected $state;
-    protected $application_id;
     protected $areacode;
     protected $country = "US";
 
@@ -81,6 +79,30 @@ abstract class Search implements Arrayable, PhoneSearchParams
     public function setCountry($country)
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of state.
+     *
+     * @return mixed
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Sets the value of state.
+     *
+     * @param mixed $state the state
+     *
+     * @return self
+     */
+    protected function setState($state)
+    {
+        $this->state = $state;
 
         return $this;
     }

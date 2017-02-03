@@ -46,7 +46,10 @@ class Bandwidth extends Driver
 
     public function buyNumber($phone)
     {
-        $response = (new PhoneNumbers())->allocate(["number" => $phone]);
+        $response = (new PhoneNumbers())->allocate([
+            "number" => $phone,
+            "applicationId" => $this->getApplicationId(),
+        ]);
         return new BandwidthResponse($response);
     }
 
@@ -58,5 +61,10 @@ class Bandwidth extends Driver
     protected function getFallbackUrl()
     {
         return array_key_exists("fallback_url", $this->config) ? $this->config["fallback_url"] : null;
+    }
+
+    protected function getApplicationId()
+    {
+        return array_key_exists("application_id", $this->config) ? $this->config["application_id"] : null;
     }
 }
