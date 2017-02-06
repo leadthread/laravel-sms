@@ -28,14 +28,13 @@ class Bandwidth extends Driver
 
     public function send($msg, $to, $from, $callback = null)
     {
-        $message = new Message(array(
+        return new BandwidthResponse(new Message(array(
             "from" => new PhoneNumber($from),
             "to" => new PhoneNumber($to),
             "text" => new TextMessage($msg),
             "callbackUrl" => $callback,
             "fallbackUrl" => $this->getFallbackUrl(),
-        ));
-        return new BandwidthResponse($message);
+        )));
     }
 
     public function searchNumber(PhoneSearchParams $search)

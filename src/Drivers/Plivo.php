@@ -4,6 +4,7 @@ namespace Zenapply\Sms\Drivers;
 
 use Plivo\RestAPI as Service;
 use Zenapply\Sms\Drivers\Driver;
+use Zenapply\Sms\Interfaces\PhoneSearchParams;
 use Zenapply\Sms\Responses\Plivo as PlivoResponse;
 
 class Plivo extends Driver
@@ -32,20 +33,16 @@ class Plivo extends Driver
         return new PlivoResponse($this->handle->send_message($params));
     }
 
-    public function searchNumber($search)
+    public function searchNumber(PhoneSearchParams $search)
     {
-        if (!is_array($search)) {
-            throw new Exception("Argument #1 must be an array");
-        }
+        // $params = [
+        //     'country_iso' => $search["country"],
+        //     'type' => 'local',
+        //     'pattern' => $search["areacode"],
+        //     'services' => 'sms',
+        // ];
 
-        $params = [
-            'country_iso' => $search["country"],
-            'type' => 'local',
-            'pattern' => $search["areacode"],
-            'services' => 'sms',
-        ];
-
-        return new PlivoResponse($this->handle->search_phone_numbers($params));
+        return new PlivoResponse($this->handle->search_phone_numbers($search));
     }
 
     public function buyNumber($phone)

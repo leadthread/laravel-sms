@@ -4,19 +4,21 @@ namespace Zenapply\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
 
-class Bandwidth extends Search
+class Plivo extends Search
 {
     public function toArray()
     {
-        $arr = [];
+        $arr = ['type' => 'local', 'services' => 'sms'];
         foreach ($this->params as $key) {
             switch ($key) {
                 case 'areacode':
-                    $arr["areaCode"] = $this->{$key};
+                    $arr["pattern"] = $this->{$key};
                     break;
                 case 'country':
-                    //do nothing
+                    $arr["country_iso"] = $this->{$key};
                     break;
+                case 'state':
+                    throw new Exception("The \"state\" search parameter is not supported by Twilio", 1);
                 default:
                     $arr[$key] = $this->{$key};
                     break;

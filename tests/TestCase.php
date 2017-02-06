@@ -16,7 +16,7 @@ class TestCase extends Orchestra
 
     public function tearDown()
     {
-        parent::tearDown();        
+        parent::tearDown();
     }
 
     /**
@@ -51,12 +51,20 @@ class TestCase extends Orchestra
                 'token' => 'Token',
                 'user'  => 'User',
                 'from'  => '+1 (555) 555-5555', //Default from phone number
-            ], 
+            ],
             'twilio' => [
                 'token' => 'Token',
                 'user'  => 'User',
                 'from'  => '+1 (555) 555-5555', //Default from phone number
-            ], 
+            ],
+            'bandwidth' => [
+                'secret' => 'Secret',
+                'token' => 'Token',
+                'user_id' => 'User_id',
+                'from'  => '+1 (555) 555-5555', //Default from phone number
+                'fallback_url' => null,
+                'application_id' => null,
+            ],
         ]);
     }
 

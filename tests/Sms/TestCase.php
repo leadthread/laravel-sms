@@ -1,14 +1,15 @@
 <?php
 
-namespace Zenapply\Sms\Tests;
+namespace Zenapply\Sms\Tests\Sms;
 
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Sms;
 use Zenapply\Sms\Interfaces\SendsSms;
 use Zenapply\Sms\Factories\DriverFactory;
+use Zenapply\Sms\Tests\TestCase as BaseTestCase;
 use Sms as SmsFacade;
 
-class SmsTest extends TestCase
+abstract class TestCase extends BaseTestCase
 {
     public function testItCreatesAnInstanceOfSms()
     {
@@ -18,12 +19,10 @@ class SmsTest extends TestCase
 
     public function testItSuccessfullyCreatesAllDrivers()
     {
-        $drivers = ['twilio','plivo'];
+        $d = config('sms.driver');
         $factory = new DriverFactory;
-        foreach ($drivers as $d) {
-            $driver = $factory->get($d);
-            $this->assertInstanceOf(SendsSms::class, $driver);
-        }
+        $driver = $factory->get($d);
+        $this->assertInstanceOf(SendsSms::class, $driver);
     }
 
     public function testSmsSend()
