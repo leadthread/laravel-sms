@@ -27,6 +27,7 @@ class Twilio extends Driver
         if (!empty($callback)) {
             throw new \Exception("Callback URLs are not implemented for Twilio", 1);
         }
+        
         return new TwilioResponse($this->handle->account->messages->sendMessage($from, $to, $msg));
     }
 

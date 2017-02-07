@@ -31,7 +31,7 @@ class Bandwidth extends Driver
         return new BandwidthResponse(new Message(array(
             "from" => new PhoneNumber($from),
             "to" => new PhoneNumber($to),
-            "text" => new TextMessage($msg),
+            "text" => new TextMessage($msg, false),
             "callbackUrl" => $callback,
             "fallbackUrl" => $this->getFallbackUrl(),
         )));
