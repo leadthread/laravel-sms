@@ -7,24 +7,28 @@ use Exception;
 
 class Twilio extends Search
 {
-    public function toArray()
+    protected function getBaseArray()
     {
-        $arr = ["Sms" => true];
-        foreach ($this->params as $key) {
-            switch ($key) {
-                case 'areacode':
-                    $arr["AreaCode"] = $this->{$key};
-                    break;
-                case 'state':
+        return ["Sms" => true];
+    }
+
+    protected function handleParamKey($key, $arr)
+    {
+        switch ($key) {
+            case 'areacode':
+                $arr["AreaCode"] = $this->{$key};
+                break;
+            case 'state':
+                if (!empty($this->{$key})) {
                     throw new Exception("The \"state\" search parameter is not supported by Twilio", 1);
-                case 'country':
-                    //do nothing
-                    break;
-                default:
-                    $arr[$key] = $this->{$key};
-                    break;
-            }
+                }
+                break;
+            case 'country':
+                //do nothing
+                break;
+            default:
+                $arr[$key] = $this->{$key};
+                break;
         }
-        return $arr;
     }
 }

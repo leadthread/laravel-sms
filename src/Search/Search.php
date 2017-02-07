@@ -28,12 +28,15 @@ abstract class Search implements Arrayable, PhoneSearchParams
 
     public function toArray()
     {
-        $arr = [];
+        $arr = $this->getBaseArray();
         foreach ($this->params as $key) {
-            $arr[$key] = $this->{$key};
+            $this->handleParamKey($key, $arr);
         }
         return $arr;
     }
+
+    abstract protected function getBaseArray();
+    abstract protected function handleParamKey($key, $arr);
 
     /**
      * Gets the value of areacode.

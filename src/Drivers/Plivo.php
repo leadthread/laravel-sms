@@ -35,14 +35,7 @@ class Plivo extends Driver
 
     public function searchNumber(PhoneSearchParams $search)
     {
-        // $params = [
-        //     'country_iso' => $search["country"],
-        //     'type' => 'local',
-        //     'pattern' => $search["areacode"],
-        //     'services' => 'sms',
-        // ];
-
-        return new PlivoResponse($this->handle->search_phone_numbers($search));
+        return new PlivoResponse($this->handle->search_phone_numbers($search->toArray()));
     }
 
     public function buyNumber($phone)
