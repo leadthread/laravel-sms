@@ -5,7 +5,7 @@ namespace Zenapply\Sms\Tests\Responses;
 class TwilioTest extends TestCase
 {
     protected $class = \Zenapply\Sms\Responses\Twilio::class;
-    protected $driver = 'plivo';
+    protected $driver = 'twilio';
 
     protected function getFakeResponse()
     {
