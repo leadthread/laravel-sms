@@ -11,9 +11,7 @@ use Zenapply\Sms\Responses\Twilio as TwilioResponse;
 
 class Twilio extends Driver
 {
-
     protected $handle;
-
     protected $auth_id;
 
     public function __construct($auth_id, $auth_token)
@@ -44,6 +42,7 @@ class Twilio extends Driver
         $resp = $this->handle->account->incoming_phone_numbers->create(array(
             "PhoneNumber" => $phone,
         ));
+
         return new TwilioResponse($resp);
     }
 
