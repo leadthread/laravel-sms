@@ -13,6 +13,8 @@ use Config;
 abstract class TestCase extends BaseTestCase
 {
     protected $driver;
+    protected $class;
+    protected $classArgs;
 
     /**
      * Setup the test environment.
@@ -31,6 +33,12 @@ abstract class TestCase extends BaseTestCase
     public function testItCreatesAnInstanceOfSms()
     {
         $sms = new Sms();
+        $this->assertInstanceOf(Sms::class, $sms);
+    }
+
+    public function testTheFacade()
+    {
+        $sms = SmsFacade::getFacadeRoot();
         $this->assertInstanceOf(Sms::class, $sms);
     }
 

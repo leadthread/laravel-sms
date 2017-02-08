@@ -17,7 +17,7 @@ class Plivo extends Response
             }
         }
 
-        if (isset($resp['available_phone_numbers'])) {
+        if (isset($response['available_phone_numbers'])) {
             $this->number = $response['available_phone_numbers'][0]['phone_number'];
         }
 
