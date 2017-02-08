@@ -9,4 +9,5 @@ class PlivoTest extends TestCase
 {
     protected $searchClass = Search::class;
     protected $driver = 'plivo';
+    protected $defaultSearch = ['type' => 'local', 'services' => 'sms'];
 }

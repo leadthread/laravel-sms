@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
     public function testSearchGivesAnArray()
     {
         $x = $this->getSearchInstance();
-        $this->assertEquals($x->toArray(), []);
+        $this->assertEquals($x->toArray(), $this->defaultSearch);
     }
 
     protected function getSearchInstance($options = [])

@@ -9,4 +9,5 @@ class TwilioTest extends TestCase
 {
     protected $searchClass = Search::class;
     protected $driver = 'twilio';
+    protected $defaultSearch = ["Sms" => true];
 }

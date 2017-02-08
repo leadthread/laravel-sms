@@ -9,4 +9,5 @@ class BandwidthTest extends TestCase
 {
     protected $searchClass = Search::class;
     protected $driver = 'bandwidth';
+    protected $defaultSearch = [];
 }

@@ -66,7 +66,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function getSmsInstanceWithMockedDriver()
     {
-        $mock = $this->getMock('Zenapply\Sms\Drivers\Plivo', ['send'], ['user','token']);
+        $mock = $this->getMock($this->class, ['send'], $this->classArgs);
         
         $mock->expects($this->any())
              ->method('send');
