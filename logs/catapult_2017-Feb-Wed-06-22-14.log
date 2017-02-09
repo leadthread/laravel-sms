@@ -1,2 +1,0 @@
-/vagrant/zenapply/laravel-sms/run.php (line: 45) - APPLICATION: [Feb/02/17:18:22:14] - {"category":"bad-request","code":"invalid-available-number-search","message":"Specify a State, ZIP Code, or Area Code with your query.","details":[{"name":"requestMethod","value":"GET"},{"name":"remoteAddress","value":"209.90.114.2"},{"name":"requestPath","value":"availableNumbers\/local\/"}]}
-/home/ubuntu/vendor/phpunit/phpunit/phpunit (line: 47) - APPLICATION: [Feb/02/17:02:33:13] - This object does not have a valid id, content field
