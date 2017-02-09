@@ -30,13 +30,15 @@ abstract class Search implements Arrayable, PhoneSearchParams
     {
         $arr = $this->getBaseArray();
         foreach ($this->params as $key) {
-            $this->handleParamKey($key, $arr);
+            if (!empty($this->{$key})) {
+                $this->handleParamKey($key, $arr);
+            }
         }
         return $arr;
     }
 
     abstract protected function getBaseArray();
-    abstract protected function handleParamKey($key, $arr);
+    abstract protected function handleParamKey($key, &$arr);
 
     /**
      * Gets the value of areacode.

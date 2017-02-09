@@ -11,7 +11,7 @@ class Bandwidth extends Search
         return [];
     }
 
-    protected function handleParamKey($key, $arr)
+    protected function handleParamKey($key, &$arr)
     {
         switch ($key) {
             case 'areacode':

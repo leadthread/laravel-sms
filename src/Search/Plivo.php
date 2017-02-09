@@ -12,7 +12,7 @@ class Plivo extends Search
         return ['type' => 'local', 'services' => 'sms'];
     }
 
-    protected function handleParamKey($key, $arr)
+    protected function handleParamKey($key, &$arr)
     {
         switch ($key) {
             case 'areacode':

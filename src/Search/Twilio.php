@@ -12,7 +12,7 @@ class Twilio extends Search
         return ["Sms" => true];
     }
 
-    protected function handleParamKey($key, $arr)
+    protected function handleParamKey($key, &$arr)
     {
         switch ($key) {
             case 'areacode':

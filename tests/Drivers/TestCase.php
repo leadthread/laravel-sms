@@ -30,18 +30,6 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();
     }
 
-    public function testItCreatesAnInstanceOfSms()
-    {
-        $sms = new Sms();
-        $this->assertInstanceOf(Sms::class, $sms);
-    }
-
-    public function testTheFacade()
-    {
-        $sms = SmsFacade::getFacadeRoot();
-        $this->assertInstanceOf(Sms::class, $sms);
-    }
-
     public function testItSuccessfullyCreatesAllDrivers()
     {
         $d = config('sms.driver');
