@@ -21,6 +21,10 @@ class Bandwidth extends Driver
 
     public function __construct($secret, $token, $user_id)
     {
+        // Turn off the logger
+        \Catapult\Log::on(false);
+
+        // Proceed as normal
         $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
         $cred = new Credentials($user_id, $token, $secret);
         $this->handle = new Service($cred);
