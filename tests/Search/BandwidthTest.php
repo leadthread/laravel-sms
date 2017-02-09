@@ -14,7 +14,6 @@ class BandwidthTest extends TestCase
     public function testSearchGivesAnArrayWithState()
     {
         $x = $this->getSearchInstance(["state" => "UT"]);
-        var_dump($x->toArray());
         $this->assertEquals(["state" => "UT"], $x->toArray());
     }
 }
