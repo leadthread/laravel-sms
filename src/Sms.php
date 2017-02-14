@@ -3,7 +3,6 @@
 namespace Zenapply\Sms;
 
 use Config;
-use Validator;
 use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
 use Zenapply\Sms\Factories\DriverFactory;
 use Zenapply\Sms\Factories\SearchFactory;
