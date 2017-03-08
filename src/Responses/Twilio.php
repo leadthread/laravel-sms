@@ -21,6 +21,6 @@ class Twilio extends Response
 
     public function successful()
     {
-        return $this->error === null;
+        return empty($this->error);
     }
 }

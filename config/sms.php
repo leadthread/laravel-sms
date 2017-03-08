@@ -3,7 +3,7 @@
 return [
 
     /**
-     * The SMS service to use. twilio or plivo
+     * The SMS service to use. twilio, plivo, bandwidth, or log
      */
     'driver' => env('SMS_DRIVER', 'plivo'),
 

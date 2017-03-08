@@ -3,9 +3,10 @@
 namespace Zenapply\Sms\Factories;
 
 use Exception;
+use Zenapply\Sms\Search\Bandwidth;
+use Zenapply\Sms\Search\Log;
 use Zenapply\Sms\Search\Plivo;
 use Zenapply\Sms\Search\Twilio;
-use Zenapply\Sms\Search\Bandwidth;
 
 class SearchFactory
 {
@@ -18,6 +19,16 @@ class SearchFactory
     public function get($driver, $options)
     {
         return $this->{$driver}($options);
+    }
+
+    /**
+     * Log
+     * @param  array $options An array of search values for finding a phone number
+     * @return \Zenapply\Sms\Search\Log
+     */
+    protected function log(array $options)
+    {
+        return new Log($options);
     }
 
     /**

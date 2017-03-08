@@ -3,9 +3,10 @@
 namespace Zenapply\Sms\Factories;
 
 use Exception;
+use Zenapply\Sms\Drivers\Bandwidth;
+use Zenapply\Sms\Drivers\Log;
 use Zenapply\Sms\Drivers\Plivo;
 use Zenapply\Sms\Drivers\Twilio;
-use Zenapply\Sms\Drivers\Bandwidth;
 
 class DriverFactory
 {
@@ -17,7 +18,12 @@ class DriverFactory
      */
     public function get($driver)
     {
-        $config = config("sms.{$driver}");
+        if ($driver === 'log') {
+            $config = [];
+        } else {
+            $config = config("sms.{$driver}");
+        }
+
         if (is_array($config)) {
             return $this->{$driver}($config);
         } else {
@@ -26,9 +32,19 @@ class DriverFactory
     }
 
     /**
+     * Log
+     * @param  array $config An array of config values for setting up the driver
+     * @return \Zenapply\Sms\Drivers\Log
+     */
+    protected function log(array $config)
+    {
+        return new Log();
+    }
+
+    /**
      * Plivo
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Plivo\Request
+     * @return \Zenapply\Sms\Drivers\Plivo
      */
     protected function plivo(array $config)
     {
