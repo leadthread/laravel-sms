@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Search;
+namespace Leadthread\Sms\Tests\Search;
 
-use Zenapply\Sms\Search\Plivo as Search;
+use Leadthread\Sms\Search\Plivo as Search;
 use Config;
 
 class PlivoTest extends TestCase

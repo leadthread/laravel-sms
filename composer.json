@@ -1,5 +1,5 @@
 {
-    "name": "zenapply/laravel-sms",
+    "name": "leadthread/laravel-sms",
     "description": "",
     "keywords": [
         "laravel",
@@ -7,9 +7,9 @@
         "sms",
         "twilio",
         "tylercd100",
-        "zenapply"
+        "leadthread"
     ],
-    "homepage": "https://github.com/zenapply/laravel-sms",
+    "homepage": "https://github.com/leadthread/laravel-sms",
     "license": "MIT",  
     "authors": [
         {
@@ -19,12 +19,12 @@
     ],
     "autoload":{
         "psr-4":{
-            "Zenapply\\Sms\\":"src/"
+            "Leadthread\\Sms\\":"src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zenapply\\Sms\\Tests\\": "tests/"
+            "Leadthread\\Sms\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",  

@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Tests;
+namespace Leadthread\Sms\Tests;
 
-use Zenapply\Sms\Sms;
+use Leadthread\Sms\Sms;
 use Sms as SmsFacade;
 
 class SmsTest extends TestCase

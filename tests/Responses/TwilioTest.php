@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Responses;
+namespace Leadthread\Sms\Tests\Responses;
 
 class TwilioTest extends TestCase
 {
-    protected $class = \Zenapply\Sms\Responses\Twilio::class;
+    protected $class = \Leadthread\Sms\Responses\Twilio::class;
     protected $driver = 'twilio';
 
     protected function getFakeResponse()

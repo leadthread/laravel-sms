@@ -1,12 +1,12 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Drivers;
+namespace Leadthread\Sms\Tests\Drivers;
 
-use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
-use Zenapply\Sms\Sms;
-use Zenapply\Sms\Interfaces\SendsSms;
-use Zenapply\Sms\Factories\DriverFactory;
-use Zenapply\Sms\Tests\TestCase as BaseTestCase;
+use Leadthread\Sms\Exceptions\InvalidPhoneNumberException;
+use Leadthread\Sms\Sms;
+use Leadthread\Sms\Interfaces\SendsSms;
+use Leadthread\Sms\Factories\DriverFactory;
+use Leadthread\Sms\Tests\TestCase as BaseTestCase;
 use Sms as SmsFacade;
 use Config;
 

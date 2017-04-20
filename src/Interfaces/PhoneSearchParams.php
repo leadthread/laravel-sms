@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Interfaces;
+namespace Leadthread\Sms\Interfaces;
 
 interface PhoneSearchParams
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace Leadthread\Sms\Drivers;
 
-use Zenapply\Sms\Interfaces\SendsSms;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
+use Leadthread\Sms\Interfaces\SendsSms;
+use Leadthread\Sms\Interfaces\PhoneSearchParams;
 
 abstract class Driver implements SendsSms
 {
@@ -16,7 +16,7 @@ abstract class Driver implements SendsSms
     /**
      * Searches for a number and then purchases the first one it finds
      * @param  array $search Array of search options
-     * @return \Zenapply\Sms\Responses\Response
+     * @return \Leadthread\Sms\Responses\Response
      */
     public function searchAndBuyNumber(PhoneSearchParams $search)
     {

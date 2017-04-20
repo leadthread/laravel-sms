@@ -1,9 +1,9 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Search;
+namespace Leadthread\Sms\Tests\Search;
 
-use Zenapply\Sms\Factories\SearchFactory;
-use Zenapply\Sms\Tests\TestCase as BaseTestCase;
+use Leadthread\Sms\Factories\SearchFactory;
+use Leadthread\Sms\Tests\TestCase as BaseTestCase;
 use Sms as SmsFacade;
 use Config;
 

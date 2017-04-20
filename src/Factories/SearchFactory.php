@@ -1,11 +1,11 @@
 <?php
 
-namespace Zenapply\Sms\Factories;
+namespace Leadthread\Sms\Factories;
 
 use Exception;
-use Zenapply\Sms\Search\Plivo;
-use Zenapply\Sms\Search\Twilio;
-use Zenapply\Sms\Search\Bandwidth;
+use Leadthread\Sms\Search\Plivo;
+use Leadthread\Sms\Search\Twilio;
+use Leadthread\Sms\Search\Bandwidth;
 
 class SearchFactory
 {
@@ -13,7 +13,7 @@ class SearchFactory
     /**
      * Creates a driver instance
      * @param  string $driver The driver name to create a search instance for
-     * @return \Zenapply\Sms\Search\Search
+     * @return \Leadthread\Sms\Search\Search
      */
     public function get($driver, $options)
     {
@@ -23,7 +23,7 @@ class SearchFactory
     /**
      * Plivo
      * @param  array $options An array of search values for finding a phone number
-     * @return \Zenapply\Sms\Search\Plivo
+     * @return \Leadthread\Sms\Search\Plivo
      */
     protected function plivo(array $options)
     {
@@ -33,7 +33,7 @@ class SearchFactory
     /**
      * Twilio
      * @param  array $options An array of search values for finding a phone number
-     * @return \Zenapply\Sms\Search\Twilio
+     * @return \Leadthread\Sms\Search\Twilio
      */
     protected function twilio(array $options)
     {
@@ -43,7 +43,7 @@ class SearchFactory
     /**
      * Bandwidth
      * @param  array $options An array of search values for finding a phone number
-     * @return \Zenapply\Sms\Search\Bandwidth
+     * @return \Leadthread\Sms\Search\Bandwidth
      */
     protected function bandwidth(array $options)
     {

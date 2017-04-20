@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Facades;
+namespace Leadthread\Sms\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

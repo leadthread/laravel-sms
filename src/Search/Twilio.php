@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Search;
+namespace Leadthread\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Exception;

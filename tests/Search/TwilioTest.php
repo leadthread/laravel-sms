@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Search;
+namespace Leadthread\Sms\Tests\Search;
 
-use Zenapply\Sms\Search\Twilio as Search;
+use Leadthread\Sms\Search\Twilio as Search;
 use Config;
 
 class TwilioTest extends TestCase

@@ -1,11 +1,11 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace Leadthread\Sms\Drivers;
 
 use Plivo\RestAPI as Service;
-use Zenapply\Sms\Drivers\Driver;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
-use Zenapply\Sms\Responses\Plivo as PlivoResponse;
+use Leadthread\Sms\Drivers\Driver;
+use Leadthread\Sms\Interfaces\PhoneSearchParams;
+use Leadthread\Sms\Responses\Plivo as PlivoResponse;
 
 class Plivo extends Driver
 {

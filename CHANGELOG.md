@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-sms` will be documented in this file.
 
+### 3.0.0
+- Changed ownership from zenapply to leadthread
+- Namespace changes
+
 ### 2.1.2
 - Changed Twilio number check from === to ==
 
