@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Interfaces;
+namespace LeadThread\Sms\Interfaces;
 
 interface SendsSms
 {

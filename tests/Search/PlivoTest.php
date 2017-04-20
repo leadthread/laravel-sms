@@ -1,8 +1,8 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Search;
+namespace LeadThread\Sms\Tests\Search;
 
-use Leadthread\Sms\Search\Plivo as Search;
+use LeadThread\Sms\Search\Plivo as Search;
 use Config;
 
 class PlivoTest extends TestCase

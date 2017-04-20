@@ -1,9 +1,9 @@
 <?php
 
-namespace Leadthread\Sms\Search;
+namespace LeadThread\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Leadthread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
 
 abstract class Search implements Arrayable, PhoneSearchParams
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Leadthread\Sms\Providers;
+namespace LeadThread\Sms\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Leadthread\Sms\Sms;
+use LeadThread\Sms\Sms;
 
 class SmsServiceProvider extends ServiceProvider
 {

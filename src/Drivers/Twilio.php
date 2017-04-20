@@ -1,13 +1,13 @@
 <?php
 
-namespace Leadthread\Sms\Drivers;
+namespace LeadThread\Sms\Drivers;
 
 use Exception;
 use Twilio\Rest\Client as Service;
-use Leadthread\Sms\Drivers\Driver;
-use Leadthread\Sms\Exceptions\InvalidPhoneNumberException;
-use Leadthread\Sms\Interfaces\PhoneSearchParams;
-use Leadthread\Sms\Responses\Twilio as TwilioResponse;
+use LeadThread\Sms\Drivers\Driver;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Responses\Twilio as TwilioResponse;
 
 class Twilio extends Driver
 {

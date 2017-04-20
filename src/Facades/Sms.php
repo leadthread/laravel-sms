@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Facades;
+namespace LeadThread\Sms\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

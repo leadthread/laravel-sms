@@ -1,10 +1,10 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Drivers;
+namespace LeadThread\Sms\Tests\Drivers;
 
 class PlivoTest extends TestCase
 {
-    protected $class = \Leadthread\Sms\Drivers\Plivo::class;
+    protected $class = \LeadThread\Sms\Drivers\Plivo::class;
     protected $classArgs = ["user", "token"];
     protected $driver = 'plivo';
 }

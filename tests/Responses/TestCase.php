@@ -1,8 +1,8 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Responses;
+namespace LeadThread\Sms\Tests\Responses;
 
-use Leadthread\Sms\Tests\TestCase as BaseTestCase;
+use LeadThread\Sms\Tests\TestCase as BaseTestCase;
 use Config;
 
 abstract class TestCase extends BaseTestCase

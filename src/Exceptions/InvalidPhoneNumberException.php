@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Exceptions;
+namespace LeadThread\Sms\Exceptions;
 
 class InvalidPhoneNumberException extends \Exception
 {

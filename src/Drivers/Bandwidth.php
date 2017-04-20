@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Drivers;
+namespace LeadThread\Sms\Drivers;
 
 use Catapult\Client as Service;
 use Catapult\Credentials;
@@ -9,11 +9,11 @@ use Catapult\PhoneNumber;
 use Catapult\PhoneNumbers;
 use Catapult\TextMessage;
 use Config;
-use Leadthread\Sms\Drivers\Driver;
-use Leadthread\Sms\Exceptions\InvalidPhoneNumberException;
-use Leadthread\Sms\Interfaces\PhoneSearchParams;
-use Leadthread\Sms\Responses\Bandwidth as BandwidthResponse;
-use Leadthread\Sms\Search\Bandwidth as Search;
+use LeadThread\Sms\Drivers\Driver;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Responses\Bandwidth as BandwidthResponse;
+use LeadThread\Sms\Search\Bandwidth as Search;
 
 class Bandwidth extends Driver
 {

@@ -31,12 +31,12 @@ composer require bandwidth/catapult:^0.8.2
 
 Now add the following to the `providers` array in your `config/app.php`
 ```php
-Leadthread\Sms\Providers\SmsServiceProvider::class
+LeadThread\Sms\Providers\SmsServiceProvider::class
 ```
 
 and this to the `aliases` array in `config/app.php`
 ```php
-"Sms" => "Leadthread\Sms\Facades\Sms",
+"Sms" => "LeadThread\Sms\Facades\Sms",
 ```
 
 Then you will need to run these commands in the terminal in order to copy the config file
@@ -78,7 +78,7 @@ Dont forget to add this to the top of the file
 //If you updated your aliases array in "config/app.php"
 use Sms;
 //or if you didnt...
-use Leadthread\Sms\Facades\Sms;
+use LeadThread\Sms\Facades\Sms;
 ```
 
 ### Buying and Selling phone numbers

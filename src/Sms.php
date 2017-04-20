@@ -1,14 +1,14 @@
 <?php
 
-namespace Leadthread\Sms;
+namespace LeadThread\Sms;
 
 use Config;
-use Leadthread\Sms\Exceptions\InvalidPhoneNumberException;
-use Leadthread\Sms\Factories\DriverFactory;
-use Leadthread\Sms\Factories\SearchFactory;
-use Leadthread\Sms\Interfaces\PhoneSearchParams;
-use Leadthread\Sms\Interfaces\SendsSms;
-use Leadthread\Sms\Search\Search;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Factories\DriverFactory;
+use LeadThread\Sms\Factories\SearchFactory;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Interfaces\SendsSms;
+use LeadThread\Sms\Search\Search;
 
 class Sms
 {
@@ -24,7 +24,7 @@ class Sms
     /**
      * Returns a SMS driver instance
      * @param  mixed $driver An existing SMS driver instance to use
-     * @return \Leadthread\Sms\Interfaces\SendsSms
+     * @return \LeadThread\Sms\Interfaces\SendsSms
      */
     protected function getDriver($driver = null)
     {
@@ -93,7 +93,7 @@ class Sms
     /**
      * Searches for a number and then purchases the first one it finds
      * @param  array $search Array of search options
-     * @return \Leadthread\Sms\Responses\Response
+     * @return \LeadThread\Sms\Responses\Response
      */
     public function searchAndBuyNumber($search)
     {

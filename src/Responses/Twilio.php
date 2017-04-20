@@ -1,8 +1,8 @@
 <?php
 
-namespace Leadthread\Sms\Responses;
+namespace LeadThread\Sms\Responses;
 
-use Leadthread\Sms\Interfaces\SmsResponse;
+use LeadThread\Sms\Interfaces\SmsResponse;
 
 class Twilio extends Response
 {

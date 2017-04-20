@@ -1,10 +1,10 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Responses;
+namespace LeadThread\Sms\Tests\Responses;
 
 class TwilioTest extends TestCase
 {
-    protected $class = \Leadthread\Sms\Responses\Twilio::class;
+    protected $class = \LeadThread\Sms\Responses\Twilio::class;
     protected $driver = 'twilio';
 
     protected function getFakeResponse()

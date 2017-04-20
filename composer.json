@@ -19,12 +19,12 @@
     ],
     "autoload":{
         "psr-4":{
-            "Leadthread\\Sms\\":"src/"
+            "LeadThread\\Sms\\":"src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Leadthread\\Sms\\Tests\\": "tests/"
+            "LeadThread\\Sms\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",  

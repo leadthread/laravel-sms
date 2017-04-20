@@ -1,12 +1,12 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Drivers;
+namespace LeadThread\Sms\Tests\Drivers;
 
-use Leadthread\Sms\Exceptions\InvalidPhoneNumberException;
-use Leadthread\Sms\Sms;
-use Leadthread\Sms\Interfaces\SendsSms;
-use Leadthread\Sms\Factories\DriverFactory;
-use Leadthread\Sms\Tests\TestCase as BaseTestCase;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Sms;
+use LeadThread\Sms\Interfaces\SendsSms;
+use LeadThread\Sms\Factories\DriverFactory;
+use LeadThread\Sms\Tests\TestCase as BaseTestCase;
 use Sms as SmsFacade;
 use Config;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Tests;
+namespace LeadThread\Sms\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return ['Leadthread\Sms\Providers\SmsServiceProvider'];
+        return ['LeadThread\Sms\Providers\SmsServiceProvider'];
     }
 
     /**
@@ -33,7 +33,7 @@ class TestCase extends Orchestra
     protected function getPackageAliases($app)
     {
         return [
-            'Sms' => 'Leadthread\Sms\Facades\Sms'
+            'Sms' => 'LeadThread\Sms\Facades\Sms'
         ];
     }
 

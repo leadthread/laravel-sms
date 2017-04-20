@@ -1,6 +1,6 @@
 <?php
 
-namespace Leadthread\Sms\Search;
+namespace LeadThread\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
 

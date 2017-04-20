@@ -1,8 +1,8 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Search;
+namespace LeadThread\Sms\Tests\Search;
 
-use Leadthread\Sms\Search\Bandwidth as Search;
+use LeadThread\Sms\Search\Bandwidth as Search;
 use Config;
 
 class BandwidthTest extends TestCase

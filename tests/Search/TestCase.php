@@ -1,9 +1,9 @@
 <?php
 
-namespace Leadthread\Sms\Tests\Search;
+namespace LeadThread\Sms\Tests\Search;
 
-use Leadthread\Sms\Factories\SearchFactory;
-use Leadthread\Sms\Tests\TestCase as BaseTestCase;
+use LeadThread\Sms\Factories\SearchFactory;
+use LeadThread\Sms\Tests\TestCase as BaseTestCase;
 use Sms as SmsFacade;
 use Config;
 

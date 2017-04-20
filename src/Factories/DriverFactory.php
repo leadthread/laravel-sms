@@ -1,11 +1,11 @@
 <?php
 
-namespace Leadthread\Sms\Factories;
+namespace LeadThread\Sms\Factories;
 
 use Exception;
-use Leadthread\Sms\Drivers\Plivo;
-use Leadthread\Sms\Drivers\Twilio;
-use Leadthread\Sms\Drivers\Bandwidth;
+use LeadThread\Sms\Drivers\Plivo;
+use LeadThread\Sms\Drivers\Twilio;
+use LeadThread\Sms\Drivers\Bandwidth;
 
 class DriverFactory
 {
@@ -13,7 +13,7 @@ class DriverFactory
     /**
      * Creates a driver instance
      * @param  string $driver The driver instance to create
-     * @return \Leadthread\Sms\Drivers\SendsSms
+     * @return \LeadThread\Sms\Drivers\SendsSms
      */
     public function get($driver)
     {
@@ -28,7 +28,7 @@ class DriverFactory
     /**
      * Plivo
      * @param  array $config An array of config values for setting up the driver
-     * @return \Leadthread\Sms\Drivers\Plivo\Request
+     * @return \LeadThread\Sms\Drivers\Plivo\Request
      */
     protected function plivo(array $config)
     {
@@ -38,7 +38,7 @@ class DriverFactory
     /**
      * Twilio
      * @param  array $config An array of config values for setting up the driver
-     * @return \Leadthread\Sms\Drivers\Twilio
+     * @return \LeadThread\Sms\Drivers\Twilio
      */
     protected function twilio(array $config)
     {
@@ -48,7 +48,7 @@ class DriverFactory
     /**
      * Bandwidth
      * @param  array $config An array of config values for setting up the driver
-     * @return \Leadthread\Sms\Drivers\Bandwidth
+     * @return \LeadThread\Sms\Drivers\Bandwidth
      */
     protected function bandwidth(array $config)
     {
