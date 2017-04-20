@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace LeadThread\Sms\Drivers;
 
 use Catapult\Client as Service;
 use Catapult\Credentials;
@@ -9,11 +9,11 @@ use Catapult\PhoneNumber;
 use Catapult\PhoneNumbers;
 use Catapult\TextMessage;
 use Config;
-use Zenapply\Sms\Drivers\Driver;
-use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
-use Zenapply\Sms\Responses\Bandwidth as BandwidthResponse;
-use Zenapply\Sms\Search\Bandwidth as Search;
+use LeadThread\Sms\Drivers\Driver;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Responses\Bandwidth as BandwidthResponse;
+use LeadThread\Sms\Search\Bandwidth as Search;
 
 class Bandwidth extends Driver
 {

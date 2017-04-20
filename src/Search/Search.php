@@ -1,9 +1,9 @@
 <?php
 
-namespace Zenapply\Sms\Search;
+namespace LeadThread\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
 
 abstract class Search implements Arrayable, PhoneSearchParams
 {

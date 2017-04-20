@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace LeadThread\Sms\Drivers;
 
-use Zenapply\Sms\Responses\Log as Response;
-use Zenapply\Sms\Drivers\Driver;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Responses\Log as Response;
+use LeadThread\Sms\Drivers\Driver;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
 use Illuminate\Support\Facades\Log as Writer;
 
 class Log extends Driver

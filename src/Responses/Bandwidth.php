@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Responses;
+namespace LeadThread\Sms\Responses;
 
-use Zenapply\Sms\Interfaces\SmsResponse;
+use LeadThread\Sms\Interfaces\SmsResponse;
 use Catapult\PhoneNumbersCollection;
 use Catapult\PhoneNumbers;
 

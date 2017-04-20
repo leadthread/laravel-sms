@@ -1,12 +1,12 @@
 <?php
 
-namespace Zenapply\Sms\Factories;
+namespace LeadThread\Sms\Factories;
 
 use Exception;
-use Zenapply\Sms\Drivers\Bandwidth;
-use Zenapply\Sms\Drivers\Log;
-use Zenapply\Sms\Drivers\Plivo;
-use Zenapply\Sms\Drivers\Twilio;
+use LeadThread\Sms\Drivers\Bandwidth;
+use LeadThread\Sms\Drivers\Log;
+use LeadThread\Sms\Drivers\Plivo;
+use LeadThread\Sms\Drivers\Twilio;
 
 class DriverFactory
 {
@@ -14,7 +14,7 @@ class DriverFactory
     /**
      * Creates a driver instance
      * @param  string $driver The driver instance to create
-     * @return \Zenapply\Sms\Drivers\SendsSms
+     * @return \LeadThread\Sms\Drivers\SendsSms
      */
     public function get($driver)
     {
@@ -34,7 +34,7 @@ class DriverFactory
     /**
      * Log
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Log
+     * @return \LeadThread\Sms\Drivers\Log
      */
     protected function log(array $config)
     {
@@ -44,7 +44,7 @@ class DriverFactory
     /**
      * Plivo
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Plivo
+     * @return \LeadThread\Sms\Drivers\Plivo
      */
     protected function plivo(array $config)
     {
@@ -54,7 +54,7 @@ class DriverFactory
     /**
      * Twilio
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Twilio
+     * @return \LeadThread\Sms\Drivers\Twilio
      */
     protected function twilio(array $config)
     {
@@ -64,7 +64,7 @@ class DriverFactory
     /**
      * Bandwidth
      * @param  array $config An array of config values for setting up the driver
-     * @return \Zenapply\Sms\Drivers\Bandwidth
+     * @return \LeadThread\Sms\Drivers\Bandwidth
      */
     protected function bandwidth(array $config)
     {

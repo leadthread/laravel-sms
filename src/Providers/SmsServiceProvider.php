@@ -1,9 +1,9 @@
 <?php
 
-namespace Zenapply\Sms\Providers;
+namespace LeadThread\Sms\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Zenapply\Sms\Sms;
+use LeadThread\Sms\Sms;
 
 class SmsServiceProvider extends ServiceProvider
 {

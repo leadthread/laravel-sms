@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Drivers;
+namespace LeadThread\Sms\Tests\Drivers;
 
 class TwilioTest extends TestCase
 {
-    protected $class = \Zenapply\Sms\Drivers\Twilio::class;
+    protected $class = \LeadThread\Sms\Drivers\Twilio::class;
     protected $classArgs = ["user", "token"];
     protected $driver = 'twilio';
 }

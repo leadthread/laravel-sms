@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Exceptions;
+namespace LeadThread\Sms\Exceptions;
 
 class InvalidPhoneNumberException extends \Exception
 {

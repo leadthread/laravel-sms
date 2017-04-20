@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Search;
+namespace LeadThread\Sms\Search;
 
 use Illuminate\Contracts\Support\Arrayable;
 

@@ -1,11 +1,11 @@
 # laravel-sms
-[![Latest Version](https://img.shields.io/github/release/zenapply/laravel-sms.svg?style=flat-square)](https://github.com/zenapply/laravel-sms/releases)
+[![Latest Version](https://img.shields.io/github/release/leadthread/laravel-sms.svg?style=flat-square)](https://github.com/leadthread/laravel-sms/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://travis-ci.org/zenapply/laravel-sms.svg?branch=master)](https://travis-ci.org/zenapply/laravel-sms)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zenapply/laravel-sms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/zenapply/laravel-sms/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/zenapply/laravel-sms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/zenapply/laravel-sms/?branch=master)
+[![Build Status](https://travis-ci.org/leadthread/laravel-sms.svg?branch=master)](https://travis-ci.org/leadthread/laravel-sms)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/leadthread/laravel-sms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/leadthread/laravel-sms/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/leadthread/laravel-sms/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/leadthread/laravel-sms/?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187)
-[![Total Downloads](https://img.shields.io/packagist/dt/zenapply/laravel-sms.svg?style=flat-square)](https://packagist.org/packages/zenapply/laravel-sms)
+[![Total Downloads](https://img.shields.io/packagist/dt/leadthread/laravel-sms.svg?style=flat-square)](https://packagist.org/packages/leadthread/laravel-sms)
 
 Laravel SMS is a simple Laravel 5 package for sending messages to different SMS services. 
 
@@ -17,7 +17,7 @@ Currently supported:
 
 Install via [composer](https://getcomposer.org/) - In the terminal:
 ```bash
-composer require zenapply/laravel-sms
+composer require leadthread/laravel-sms
 ```
 
 Install Plivo or Twilio SDK
@@ -31,12 +31,12 @@ composer require bandwidth/catapult:^0.8.2
 
 Now add the following to the `providers` array in your `config/app.php`
 ```php
-Zenapply\Sms\Providers\SmsServiceProvider::class
+LeadThread\Sms\Providers\SmsServiceProvider::class
 ```
 
 and this to the `aliases` array in `config/app.php`
 ```php
-"Sms" => "Zenapply\Sms\Facades\Sms",
+"Sms" => "LeadThread\Sms\Facades\Sms",
 ```
 
 Then you will need to run these commands in the terminal in order to copy the config file
@@ -78,7 +78,7 @@ Dont forget to add this to the top of the file
 //If you updated your aliases array in "config/app.php"
 use Sms;
 //or if you didnt...
-use Zenapply\Sms\Facades\Sms;
+use LeadThread\Sms\Facades\Sms;
 ```
 
 ### Buying and Selling phone numbers

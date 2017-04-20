@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Responses;
+namespace LeadThread\Sms\Tests\Responses;
 
 class PlivoTest extends TestCase
 {
-    protected $class = \Zenapply\Sms\Responses\Plivo::class;
+    protected $class = \LeadThread\Sms\Responses\Plivo::class;
     protected $driver = 'plivo';
 
     protected function getFakeResponse()

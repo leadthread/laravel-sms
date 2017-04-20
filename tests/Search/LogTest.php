@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Search;
+namespace LeadThread\Sms\Tests\Search;
 
-use Zenapply\Sms\Search\Log as Search;
+use LeadThread\Sms\Search\Log as Search;
 use Config;
 
 class LogTest extends TestCase

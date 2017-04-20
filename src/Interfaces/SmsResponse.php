@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Interfaces;
+namespace LeadThread\Sms\Interfaces;
 
 interface SmsResponse {
     public function successful();

@@ -1,13 +1,13 @@
 <?php
 
-namespace Zenapply\Sms\Drivers;
+namespace LeadThread\Sms\Drivers;
 
 use Exception;
 use Twilio\Rest\Client as Service;
-use Zenapply\Sms\Drivers\Driver;
-use Zenapply\Sms\Exceptions\InvalidPhoneNumberException;
-use Zenapply\Sms\Interfaces\PhoneSearchParams;
-use Zenapply\Sms\Responses\Twilio as TwilioResponse;
+use LeadThread\Sms\Drivers\Driver;
+use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
+use LeadThread\Sms\Interfaces\PhoneSearchParams;
+use LeadThread\Sms\Responses\Twilio as TwilioResponse;
 
 class Twilio extends Driver
 {

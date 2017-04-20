@@ -1,6 +1,6 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Responses;
+namespace LeadThread\Sms\Tests\Responses;
 
 use Catapult\DataPacketCollection;
 use Catapult\PhoneNumber;
@@ -8,7 +8,7 @@ use Catapult\PhoneNumbersCollection;
 
 class BandwidthTest extends TestCase
 {
-    protected $class = \Zenapply\Sms\Responses\Bandwidth::class;
+    protected $class = \LeadThread\Sms\Responses\Bandwidth::class;
     protected $driver = 'bandwidth';
 
     protected function getFakeResponse()

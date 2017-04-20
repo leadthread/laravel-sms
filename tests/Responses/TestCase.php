@@ -1,8 +1,8 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Responses;
+namespace LeadThread\Sms\Tests\Responses;
 
-use Zenapply\Sms\Tests\TestCase as BaseTestCase;
+use LeadThread\Sms\Tests\TestCase as BaseTestCase;
 use Config;
 
 abstract class TestCase extends BaseTestCase

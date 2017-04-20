@@ -1,10 +1,10 @@
 <?php
 
-namespace Zenapply\Sms\Tests\Drivers;
+namespace LeadThread\Sms\Tests\Drivers;
 
 class BandwidthTest extends TestCase
 {
-    protected $class = \Zenapply\Sms\Drivers\Bandwidth::class;
+    protected $class = \LeadThread\Sms\Drivers\Bandwidth::class;
     protected $classArgs = ["user", "token", "secret"];
     protected $driver = 'bandwidth';
 }
