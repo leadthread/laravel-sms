@@ -7,6 +7,8 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56f3252c35630e0029db0187)
 [![Total Downloads](https://img.shields.io/packagist/dt/leadthread/laravel-sms.svg?style=flat-square)](https://packagist.org/packages/leadthread/laravel-sms)
 
+Please read the [README for the latest stable branch v2.1.2](https://github.com/leadthread/laravel-sms/tree/2.1.2)
+
 Laravel SMS is a simple Laravel 5 package for sending messages to different SMS services. 
 
 Currently supported:
