@@ -37,6 +37,7 @@ class Bandwidth extends Driver
             "text" => $msg,
             "callbackUrl" => $callback,
             "fallbackUrl" => $this->getFallbackUrl(),
+            "receiptRequested" => "all",
         )));
     }
 
