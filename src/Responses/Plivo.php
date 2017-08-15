@@ -19,6 +19,7 @@ class Plivo extends Response
 
         if (isset($response['available_phone_numbers'])) {
             $this->number = $response['available_phone_numbers'][0]['phone_number'];
+            $this->numbers = collect($response['available_phone_numbers'])->pluck("phone_number")->all();
         }
 
         if (isset($response['status'])) {

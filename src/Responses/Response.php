@@ -10,6 +10,7 @@ abstract class Response implements SmsResponse
     public $status;
     public $error;
     public $number;
+    public $numbers;
 
     public function __construct($response)
     {
