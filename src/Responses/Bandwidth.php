@@ -15,6 +15,7 @@ class Bandwidth extends Response
         }
         if ($response instanceof PhoneNumbersCollection) {
             $this->number = $response->first()->number;
+            $this->numbers = collect($response->toArray())->pluck("number")->all();
         }
         if ($response instanceof PhoneNumbers) {
             $this->number = $response->number;
