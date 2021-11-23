@@ -19,13 +19,13 @@ abstract class TestCase extends BaseTestCase
     /**
      * Setup the test environment.
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         Config::set('sms.driver', $this->driver);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }
@@ -41,22 +41,22 @@ abstract class TestCase extends BaseTestCase
     public function testSmsSend()
     {
         $sms = $this->getSmsInstanceWithMockedDriver();
-        $sms->send("message", "(734) 555 1211", "(734) 555 1212");
+        $sms->send("message", "+13852017374", "+13853008713");
     }
 
     public function testSmsSendMany()
     {
         $sms = $this->getSmsInstanceWithMockedDriver();
-        $sms->sendMany("message", ["(734) 555 1213", "(734) 555 1214"], "(734) 555 1215");
+        $sms->sendMany("message 4", ["+13852017374", "+13852017374"], "+13853008713");
     }
 
     public function testSmsSendArray()
     {
         $sms = $this->getSmsInstanceWithMockedDriver();
         $sms->sendArray([
-            ["msg"=>"message", "to"=>"(734) 555 1214", "from"=>"(734) 555 1215"],
-            ["msg"=>"message", "to"=>"(734) 555 1213", "from"=>"(734) 555 1216"],
-            ["msg"=>"message", "to"=>"(734) 555 1212", "from"=>"(734) 555 1217"],
+            ["msg"=>"message 1", "to"=>"+13852017374", "from"=>"+13853008713"],
+            ["msg"=>"message 2", "to"=>"+13852017374", "from"=>"+13853008713"],
+            ["msg"=>"message 3", "to"=>"+13852017374", "from"=>"+13853008713"],
         ]);
     }
 

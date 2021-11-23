@@ -9,12 +9,12 @@ class TestCase extends Orchestra
     /**
      * Setup the test environment.
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }
@@ -58,12 +58,20 @@ class TestCase extends Orchestra
                 'from'  => '+1 (555) 555-5555', //Default from phone number
             ],
             'bandwidth' => [
-                'secret' => 'Secret',
-                'token' => 'Token',
-                'user_id' => 'User_id',
-                'from'  => '+1 (555) 555-5555', //Default from phone number
-                'fallback_url' => null,
-                'application_id' => null,
+                "auth" => [
+                    'messagingBasicAuthUserName' => 'BANDWIDTH_TOKEN',
+                    'messagingBasicAuthPassword' => 'BANDWIDTH_SECRET',
+                    'voiceBasicAuthUserName' => 'BANDWIDTH_TOKEN',
+                    'voiceBasicAuthPassword' => 'BANDWIDTH_SECRET',
+                    'twoFactorAuthBasicAuthUserName' => 'BANDWIDTH_TOKEN',
+                    'twoFactorAuthBasicAuthPassword' => 'BANDWIDTH_SECRET',
+                    'webRtcBasicAuthUserName' => 'BANDWIDTH_TOKEN',
+                    'webRtcBasicAuthPassword' => 'BANDWIDTH_SECRET',
+                ],
+                'accountId' => 'BANDWIDTH_ACCOUNT_ID',
+                'from'  => 'BANDWIDTH_FROM',
+                'fallbackUrl' => 'BANDWIDTH_FALLBACK_URL',
+                'applicationId' => 'BANDWIDTH_APPLICATION_ID',
             ],
         ]);
     }
@@ -84,5 +92,10 @@ class TestCase extends Orchestra
         $method->setAccessible(true);
 
         return $method->invokeArgs($object, $parameters);
+    }
+
+    protected function getMock($class, $methods = [], $contructorArgs = []) {
+        return $this->getMockBuilder($this->class)->onlyMethods($methods)->setConstructorArgs($contructorArgs)->getMock();
+
     }
 }

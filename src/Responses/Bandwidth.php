@@ -3,23 +3,28 @@
 namespace LeadThread\Sms\Responses;
 
 use LeadThread\Sms\Interfaces\SmsResponse;
-use Catapult\PhoneNumbersCollection;
-use Catapult\PhoneNumbers;
+use BandwidthLib;
 
 class Bandwidth extends Response
 {
     public function applyResponse($response)
     {
-        if (isset($response->messageId)) {
-            $this->uuid = $response->messageId;
+        if($response) {
+
+            $this->status = $response ? $response->getStatusCode() : null;
+            $result = $response->getResult();
+            if (isset($result->id)) {
+                $this->uuid = $result->id;
+            }
+            // if ($result instanceof PhoneNumbersCollection) {
+            //     $this->number = $result->first()->number;
+            //     $this->numbers = collect($result->toArray())->pluck("number")->all();
+            // }
+            if ($result instanceof BandwidthLib\Messaging\Models\BandwidthMessage) {
+                $this->number = collect($result->from)->first();
+            }
         }
-        if ($response instanceof PhoneNumbersCollection) {
-            $this->number = $response->first()->number;
-            $this->numbers = collect($response->toArray())->pluck("number")->all();
-        }
-        if ($response instanceof PhoneNumbers) {
-            $this->number = $response->number;
-        }
+        
     }
 
     public function successful()

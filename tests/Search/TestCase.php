@@ -15,13 +15,13 @@ abstract class TestCase extends BaseTestCase
     /**
      * Setup the test environment.
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         Config::set('sms.driver', $this->driver);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }

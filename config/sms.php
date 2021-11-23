@@ -29,11 +29,19 @@ return [
      * Bandwidth settings
      */
     'bandwidth' => [
-        'secret' => env('BANDWIDTH_SECRET'),
-        'token' => env('BANDWIDTH_TOKEN'),
-        'user_id' => env('BANDWIDTH_USER_ID'),
+        "auth" => [
+            'messagingBasicAuthUserName' => env('BANDWIDTH_TOKEN'),
+            'messagingBasicAuthPassword' => env('BANDWIDTH_SECRET'),
+            'voiceBasicAuthUserName' => env('BANDWIDTH_TOKEN'),
+            'voiceBasicAuthPassword' => env('BANDWIDTH_SECRET'),
+            'twoFactorAuthBasicAuthUserName' => env('BANDWIDTH_TOKEN'),
+            'twoFactorAuthBasicAuthPassword' => env('BANDWIDTH_SECRET'),
+            'webRtcBasicAuthUserName' => env('BANDWIDTH_TOKEN'),
+            'webRtcBasicAuthPassword' => env('BANDWIDTH_SECRET'),
+        ],
+        'accountId' => env('BANDWIDTH_ACCOUNT_ID', null),
         'from'  => env('BANDWIDTH_FROM', null), //Default from phone number
-        'fallback_url' => env('BANDWIDTH_FALLBACK_URL', null),
-        'application_id' => env('BANDWIDTH_APPLICATION_ID', null),
+        'fallbackUrl' => env('BANDWIDTH_FALLBACK_URL', null),
+        'applicationId' => env('BANDWIDTH_APPLICATION_ID', null),
     ],
 ];

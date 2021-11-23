@@ -2,12 +2,7 @@
 
 namespace LeadThread\Sms\Drivers;
 
-use Catapult\Client as Service;
-use Catapult\Credentials;
-use Catapult\Message;
-use Catapult\PhoneNumber;
-use Catapult\PhoneNumbers;
-use Catapult\TextMessage;
+use BandwidthLib;
 use Config;
 use LeadThread\Sms\Drivers\Driver;
 use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
@@ -19,26 +14,42 @@ class Bandwidth extends Driver
 {
     protected $handle;
 
-    public function __construct($secret, $token, $user_id)
+    public function __construct($auth, $accountId, $applicantionId)
     {
         $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
-        $cred = new Credentials($user_id, $token, $secret);
-        $this->handle = new Service($cred);
+        $this->accountId = $accountId;
+        $this->applicationId = $applicantionId;
+        $config = new BandwidthLib\Configuration($auth);
+        $this->handle = new BandwidthLib\BandwidthClient($config);
+        // ///
+        // $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
+        // $cred = new Credentials($user_id, $token, $secret);
+        // $this->handle = new Service($cred);
         
-        // Turn off the logger
-        \Catapult\Log::on(false);
+        // // Turn off the logger
+        // \Catapult\Log::on(false);
     }
 
-    public function send($msg, $to, $from, $callback = null)
+    public function send($msg, $to, $from, $applicationId = null, $callback = null)
     {
-        return new BandwidthResponse(new Message(array(
-            "from" => new PhoneNumber($from),
-            "to" => new PhoneNumber($to),
-            "text" => $msg,
-            "callbackUrl" => $callback,
-            "fallbackUrl" => $this->getFallbackUrl(),
-            "receiptRequested" => "all",
-        )));
+        $client = $this->handle->getMessaging()->getClient();
+
+        $body = new BandwidthLib\Messaging\Models\MessageRequest();
+        $body->from = $from;
+        $body->to = is_array($to) ? $to : [$to];
+        $body->applicationId = $applicationId ?: $this->applicationId;
+        $body->text = $msg;
+        // dd([$this->accountId, $body]);
+        $response = $client->createMessage($this->accountId, $body);
+        return new BandwidthResponse($response);
+        // return new BandwidthResponse(new Message(array(
+        //     "from" => new PhoneNumber($from),
+        //     "to" => new PhoneNumber($to),
+        //     "text" => $msg,
+        //     "callbackUrl" => $callback,
+        //     "fallbackUrl" => $this->getFallbackUrl(),
+        //     "receiptRequested" => "all",
+        // )));
     }
 
     public function searchNumber(PhoneSearchParams $search)

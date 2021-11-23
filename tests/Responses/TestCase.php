@@ -10,13 +10,13 @@ abstract class TestCase extends BaseTestCase
     /**
      * Setup the test environment.
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         Config::set('sms.driver', $this->driver);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
     }
@@ -24,7 +24,7 @@ abstract class TestCase extends BaseTestCase
     public function testApplyResponse()
     {
         $x = new $this->class($this->getFakeResponse());
-        $this->assertEquals("+18887776666", $x->number);
+        $this->assertEquals("+13853008713", $x->number);
     }
 
     abstract protected function getFakeResponse();

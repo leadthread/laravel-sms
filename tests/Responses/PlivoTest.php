@@ -12,7 +12,7 @@ class PlivoTest extends TestCase
         return [
             "available_phone_numbers" => [
                 [
-                    "phone_number" => "+18887776666"
+                    "phone_number" => "+13853008713"
                 ]
             ],
         ];
