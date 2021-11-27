@@ -28,4 +28,11 @@ abstract class Response implements SmsResponse
     {
         return $this->uuid;
     }
+
+    public function merge(Response $item): void
+    {
+        $this->error = $this->error ?: $item->error;
+        $this->numbers[] = $item->number;
+        $this->numbers = array_unique($this->numbers);
+    }
 }

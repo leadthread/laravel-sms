@@ -38,26 +38,40 @@ abstract class TestCase extends BaseTestCase
         $this->assertInstanceOf(SendsSms::class, $driver);
     }
 
+    public function testAllNumbers()
+    {
+        $sms = $this->getSmsInstanceWithMockedDriver($this->getMockReturns('testAllNumbers'));
+        $result = $sms->allNumbers();
+        $this->assertTrue(is_array($result->numbers));
+    }
+
     public function testSmsSend()
     {
-        $sms = $this->getSmsInstanceWithMockedDriver();
-        $sms->send("message", "+13852017374", "+13853008713");
+        $sms = $this->getSmsInstanceWithMockedDriver($this->getMockReturns('testSmsSend'));
+        $result = $sms->send("message", "+13852017374", "+13853008713");
+        $this->assertEquals('+13853008713', $result->number);
     }
 
     public function testSmsSendMany()
     {
-        $sms = $this->getSmsInstanceWithMockedDriver();
-        $sms->sendMany("message 4", ["+13852017374", "+13852017374"], "+13853008713");
+        $sms = $this->getSmsInstanceWithMockedDriver($this->getMockReturns('testSmsSendMany'));
+        $result = $sms->sendMany("message 4", ["+13852017374", "+13852017374"], "+13853008713");
+        $this->assertTrue(is_array($result->numbers));
+        $this->assertEquals('+13853008713', $result->number);
     }
 
     public function testSmsSendArray()
     {
-        $sms = $this->getSmsInstanceWithMockedDriver();
-        $sms->sendArray([
+        $sms = $this->getSmsInstanceWithMockedDriver($this->getMockReturns('testSmsSendArray'));
+        $result = $sms->sendArray([
             ["msg"=>"message 1", "to"=>"+13852017374", "from"=>"+13853008713"],
-            ["msg"=>"message 2", "to"=>"+13852017374", "from"=>"+13853008713"],
+            ["msg"=>"message 2", "to"=>"+13852017374", "from"=>"+13854490011"],
             ["msg"=>"message 3", "to"=>"+13852017374", "from"=>"+13853008713"],
         ]);
+
+        $this->assertTrue(is_array($result->numbers));
+        $this->assertTrue(in_array('+13853008713', $result->numbers));
+        // $this->assertTrue(in_array('+13854490011', $result->numbers));
     }
 
     protected function getSmsInstanceWithMockedDriver()

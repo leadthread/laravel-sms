@@ -9,6 +9,7 @@ use LeadThread\Sms\Factories\SearchFactory;
 use LeadThread\Sms\Interfaces\PhoneSearchParams;
 use LeadThread\Sms\Interfaces\SendsSms;
 use LeadThread\Sms\Search\Search;
+use LeadThread\Sms\Responses\Response;
 
 class Sms
 {
@@ -36,6 +37,18 @@ class Sms
     }
 
     /**
+     * Gets all numbers on the account
+     * @param  string $msg  The message to send
+     * @param  mixed  $to   The number to send to
+     * @param  number $from The number to send from
+     * @return mixed        The response of the message
+     */
+    public function allNumbers()
+    {
+        return $this->driver->allNumbers();
+    }
+
+    /**
      * Sends an SMS message
      * @param  string $msg  The message to send
      * @param  mixed  $to   The number to send to
@@ -60,11 +73,12 @@ class Sms
      */
     public function sendMany($msg, array $tos, $from = null)
     {
-        $resp = [];
-        foreach ($tos as $to) {
-            $resp[] = $this->send($msg, $to, $from);
-        }
-        return $resp;
+        return $this->driver->sendMany($msg, $tos, $from);
+        // $resp = [];
+        // foreach ($tos as $to) {
+        //     $resp[] = $this->send($msg, $to, $from);
+        // }
+        // return $resp;
     }
 
     /**
@@ -74,11 +88,16 @@ class Sms
      */
     public function sendArray(array $data)
     {
-        $resp = [];
+        $response = null;
         foreach ($data as $item) {
-            $resp[] = $this->send($item['msg'], $item['to'], $item['from']);
+            $result = $this->send($item['msg'], $item['to'], $item['from']);
+            if(!$response) 
+                $response = $result;
+            else
+                $response->merge($result);
         }
-        return $resp;
+
+        return $response;
     }
 
     protected function getSearchParams($search)

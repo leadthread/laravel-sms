@@ -9,56 +9,73 @@ use LeadThread\Sms\Exceptions\InvalidPhoneNumberException;
 use LeadThread\Sms\Interfaces\PhoneSearchParams;
 use LeadThread\Sms\Responses\Bandwidth as BandwidthResponse;
 use LeadThread\Sms\Search\Bandwidth as Search;
+use LeadThread\Sms\Responses\Response;
 
 class Bandwidth extends Driver
 {
     protected $handle;
+    protected $auth;
+    protected $irisAccount;
 
     public function __construct($auth, $accountId, $applicantionId)
     {
-        $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
+        $this->auth = $auth;
         $this->accountId = $accountId;
         $this->applicationId = $applicantionId;
+        $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
         $config = new BandwidthLib\Configuration($auth);
         $this->handle = new BandwidthLib\BandwidthClient($config);
-        // ///
-        // $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
-        // $cred = new Credentials($user_id, $token, $secret);
-        // $this->handle = new Service($cred);
-        
-        // // Turn off the logger
-        // \Catapult\Log::on(false);
     }
 
-    public function send($msg, $to, $from, $applicationId = null, $callback = null)
+    public function setIrisAccount(\Iris\Account $irisAccount): void
     {
-        $client = $this->handle->getMessaging()->getClient();
+        $this->irisAccount = $irisAccount;
+    }
+
+    public function getIrisAccount(): \Iris\Account
+    {
+        if(!$this->irisAccount) {
+            $client = new \Iris\Client("tylercd100", "1Vibedia234!", ['url' => 'https://dashboard.bandwidth.com/api/']);
+            $this->irisAccount = new \Iris\Account($this->accountId, $client);
+        }
+        return $this->irisAccount;
+    }
+
+    protected function getMessagingClient()
+    {
+        return $this->handle->getMessaging()->getClient();
+    }
+
+    public function allNumbers(): BandwidthResponse
+    {
+        return new BandwidthResponse($this->getIrisAccount()->inServiceNumbers());
+    }
+
+    public function sendMany($msg, array $tos, $from = null, $callback = null): BandwidthResponse
+    {
+        return $this->send($msg, $tos, $from, $callback);
+    }
+
+    public function send($msg, $to, $from = null, $callback = null): BandwidthResponse
+    {
+        $client = $this->getMessagingClient();
 
         $body = new BandwidthLib\Messaging\Models\MessageRequest();
         $body->from = $from;
         $body->to = is_array($to) ? $to : [$to];
-        $body->applicationId = $applicationId ?: $this->applicationId;
+        $body->applicationId = $this->applicationId;
         $body->text = $msg;
-        // dd([$this->accountId, $body]);
         $response = $client->createMessage($this->accountId, $body);
         return new BandwidthResponse($response);
-        // return new BandwidthResponse(new Message(array(
-        //     "from" => new PhoneNumber($from),
-        //     "to" => new PhoneNumber($to),
-        //     "text" => $msg,
-        //     "callbackUrl" => $callback,
-        //     "fallbackUrl" => $this->getFallbackUrl(),
-        //     "receiptRequested" => "all",
-        // )));
     }
 
-    public function searchNumber(PhoneSearchParams $search)
+    public function searchNumber(PhoneSearchParams $search): BandwidthResponse
     {
         $response = (new PhoneNumbers())->listLocal($search->toArray());
         return new BandwidthResponse($response);
     }
 
-    public function buyNumber($phone)
+    public function buyNumber($phone): BandwidthResponse
     {
         $response = (new PhoneNumbers())->allocate([
             "number" => $phone,
@@ -67,7 +84,7 @@ class Bandwidth extends Driver
         return new BandwidthResponse($response);
     }
 
-    public function sellNumber($phone)
+    public function sellNumber($phone): BandwidthResponse
     {
         throw new \Exception("Error Processing Request", 1);
     }

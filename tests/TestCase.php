@@ -46,17 +46,17 @@ class TestCase extends Orchestra
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('sms', [
-            'driver' => 'plivo',
-            'plivo' => [
-                'token' => 'Token',
-                'user'  => 'User',
-                'from'  => '+1 (555) 555-5555', //Default from phone number
-            ],
-            'twilio' => [
-                'token' => 'Token',
-                'user'  => 'User',
-                'from'  => '+1 (555) 555-5555', //Default from phone number
-            ],
+            'driver' => 'bandwidth',
+            // 'plivo' => [
+            //     'token' => 'Token',
+            //     'user'  => 'User',
+            //     'from'  => '+1 (555) 555-5555', //Default from phone number
+            // ],
+            // 'twilio' => [
+            //     'token' => 'Token',
+            //     'user'  => 'User',
+            //     'from'  => '+1 (555) 555-5555', //Default from phone number
+            // ],
             'bandwidth' => [
                 "auth" => [
                     'messagingBasicAuthUserName' => 'BANDWIDTH_TOKEN',
@@ -95,7 +95,6 @@ class TestCase extends Orchestra
     }
 
     protected function getMock($class, $methods = [], $contructorArgs = []) {
-        return $this->getMockBuilder($this->class)->onlyMethods($methods)->setConstructorArgs($contructorArgs)->getMock();
-
+        return $this->getMockBuilder($class)->onlyMethods($methods)->setConstructorArgs($contructorArgs)->getMock();
     }
 }
