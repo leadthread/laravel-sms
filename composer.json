@@ -41,6 +41,7 @@
     },
     "suggest": {
         "bandwidth/sdk": "^8.1",
+        "bandwidth/iris": "^3.3",
         "twilio/sdk": "^5.1"
     }
 }
