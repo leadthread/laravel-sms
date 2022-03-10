@@ -52,6 +52,6 @@ class DriverFactory
      */
     protected function bandwidth(array $config)
     {
-        return new Bandwidth($config['auth'], $config['accountId'], $config['applicationId']);
+        return new Bandwidth($config);
     }
 }

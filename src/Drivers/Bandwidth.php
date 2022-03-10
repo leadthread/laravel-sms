@@ -14,17 +14,20 @@ use LeadThread\Sms\Responses\Response;
 class Bandwidth extends Driver
 {
     protected $handle;
-    protected $auth;
+    protected $config;
     protected $irisAccount;
+    protected $password;
+    protected $username;
 
-    public function __construct($auth, $accountId, $applicantionId)
+    public function __construct($config)
     {
-        $this->auth = $auth;
-        $this->accountId = $accountId;
-        $this->applicationId = $applicantionId;
-        $this->config = (class_exists("Config") ? Config::get('sms.bandwidth') : []);
-        $config = new BandwidthLib\Configuration($auth);
-        $this->handle = new BandwidthLib\BandwidthClient($config);
+        $this->config = $config;
+        $this->accountId = $config['accountId'];
+        $this->applicationId = $config['applicationId'];
+        $this->username = $config['username'];
+        $this->password = $config['password'];
+        $this->config = $config
+        $this->handle = new BandwidthLib\BandwidthClient( new BandwidthLib\Configuration($config['client']));
     }
 
     public function setIrisAccount(\Iris\Account $irisAccount): void
@@ -35,7 +38,7 @@ class Bandwidth extends Driver
     public function getIrisAccount(): \Iris\Account
     {
         if(!$this->irisAccount) {
-            $client = new \Iris\Client("tylercd100", "1Vibedia234!", ['url' => 'https://dashboard.bandwidth.com/api/']);
+            $client = new \Iris\Client($this->username, $this->password, ['url' => 'https://dashboard.bandwidth.com/api/']);
             $this->irisAccount = new \Iris\Account($this->accountId, $client);
         }
         return $this->irisAccount;
