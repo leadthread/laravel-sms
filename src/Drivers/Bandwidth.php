@@ -26,7 +26,7 @@ class Bandwidth extends Driver
         $this->applicationId = $config['applicationId'];
         $this->username = $config['username'];
         $this->password = $config['password'];
-        $this->config = $config
+        $this->config = $config;
         $this->handle = new BandwidthLib\BandwidthClient( new BandwidthLib\Configuration($config['client']));
     }
 
